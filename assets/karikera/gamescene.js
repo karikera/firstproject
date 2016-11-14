@@ -1,5 +1,8 @@
 
-var Building = require("./Building/Building");
+var Building = require("./Script/Building"); // Building.js의 클래스
+var Disaster = require("./Script/Disaster"); // Disaster.js의 클래스
+var util = require('./Script/util'); // util.js의 클래스
+
 
 // author: karikera
 // 레이어 위치를 이동시켜요
@@ -14,40 +17,48 @@ function moveLayer(layer, x, y)
         layerSize.height * tileSize.height + y);
 }
 
+// karikera: GameScene 클래스 부분이에요
 cc.Class({
     extends: cc.Component,
+    editor: {
+        requireComponent: cc.TiledMap
+    },
 
     properties: {
-        tilemap: {
-            default: null,
-            type: cc.TiledMapAsset
-        }
     },
 
     // karikera: 초기화
     onLoad: function () {
-        // 타일맵을 로드하고 위치를 조정하는 부분이에요
-        var tiledmap = new cc.TiledMap();
-        tiledmap = this.node.addComponent(cc.TiledMap);
-        tiledmap.tmxAsset = this.tilemap;
-        this._layerOver1 = tiledmap.getLayer("Over 1");
+        console.log("onload");
+        
+        // karikera: 타일맵을 로드하고 위치를 조정하는 부분이에요
+        var tiledmap = this.node.getComponent(cc.TiledMap);
         this._layerUnder1 = tiledmap.getLayer("Under 1");
         this._layerUnder2 = tiledmap.getLayer("Under 2");
-        moveLayer(this._layerUnder1, 0, 12);
-        moveLayer(this._layerUnder2, 0, 24);
+        moveLayer(this._layerUnder1, 0, 0);
+        moveLayer(this._layerUnder2, 0, 12);
         
+        /*
+        // karikera: Tiled의 오브젝트를 코코스 크리에이터 노드로 변환하는 부분이지만, 불필요해졌어요
+        var objs = tiledmap.getObjectGroup("Over 1").getObjects();
+        for(var i=0;i<objs.length;i++)
+        {
+            var node = new cc.Node();
+            var building = node.addComponent(Building);
+            this.node.addChild(node);
+            building.setTmxObject(objs[i]);
+        }
+        */
         
+        // karikera: 마우스 이벤트를 밑의 onMouse* 함수로 받을 수 있게 연결해요
+        util.linkMouseEvent(this.node, this);
         
-        // karikera: 키보드 이벤트를 밑의 onKeyPressed/onKeyReleased 함수로 받을 수 있게 연결해요
-        cc.eventManager.addListener({
-            event: cc.EventListener.KEYBOARD,
-            onKeyPressed: this.onKeyPressed.bind(this),
-            onKeyReleased: this.onKeyReleased.bind(this)
-        }, this);
+        // karikera: 키보드 이벤트를 밑의 onKey* 함수로 받을 수 있게 연결해요
+        util.linkKeyEvent(this.node, this);
     },
     // karikera: 키보드 눌렀을 때 동작
     onKeyPressed: function(keyCode, event) {
-        console.log("test");
+        console.log("onKeyPressed");
         switch(keyCode) {
             case cc.KEY.left:
                 break;
@@ -55,8 +66,9 @@ cc.Class({
     },
     // karikera: 키보드 땟을 때 동작
     onKeyReleased: function(keyCode, event) {
+        console.log("onKeyReleased");
     },
-
+    
     // called every frame, uncomment this function to activate update callback
     // update: function (dt) {
 
