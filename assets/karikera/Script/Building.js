@@ -18,17 +18,15 @@ var Building = cc.Class({
         인구수: 100,
     },
     statics: {
-        hover:null
+        hover:null, // karikera: 현재 마우스 위에 있는 건물이에요
     },
     
     onLoad: function()
     {
-        for(var p in this)
-        {
-            console.log(p)
-        }
         // karikera: node의 마우스 이벤트를 밑의 onMouse*로 연결해요
         util.linkMouseEvent(this.node, this);  
+        
+        // karikera: 기타 필요한걸 가져와요
         this._collider = this.node.getComponent(cc.PolygonCollider);
         this._sprite = this.node.getComponent(cc.Sprite);
         this.updateDebugLabel();
@@ -65,7 +63,7 @@ var Building = cc.Class({
     onMouseDown: function(e){
         if (Building.hover)
         {
-            Disaster.화재.onDisaster(Building.hover);
+            Disaster.selected.onDisaster(Building.hover, this.node.parent);
         }
     },
     onMouseMove: function(e){

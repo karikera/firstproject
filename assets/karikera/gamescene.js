@@ -27,9 +27,27 @@ cc.Class({
     properties: {
     },
 
+    // author: karikera 
+    // 전체 건물을 목록을 가져와요!
+    getBuildings:function()
+    {
+        var out = [];
+        var count = this.node.childrenCount;
+        for(var i=0; i < count ; i++ )
+        {
+            var child = this.node.children[i];
+            var building = child.getComponent(Building);
+            if (building === null) continue;
+            out.push(building);
+        }
+        return out;
+    },
+    
     // karikera: 초기화
     onLoad: function () {
         console.log("onload");
+        
+        this.node.getBuildings = this.getBuildings.bind(this);
         
         // karikera: 타일맵을 로드하고 위치를 조정하는 부분이에요
         var tiledmap = this.node.getComponent(cc.TiledMap);
@@ -69,8 +87,12 @@ cc.Class({
         console.log("onKeyReleased");
     },
     
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
-
-    // },
+    // author: karikera 
+    // 재난 선택 부분이에요!
+    // 버튼이 직접 호출해요
+    // e: 이벤트 객체
+    // data: 버튼에서 넘겨주는 데이터
+    onSelectDisaster: function(e, data) {
+        Disaster.selected = Disaster[data];
+    },
 });
