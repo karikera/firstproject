@@ -1,6 +1,7 @@
 
 var util = require('./util'); // util.js
 var Disaster = require('./Disaster'); // Disaster.js의 클래스
+var Ground = require('./Ground'); // Ground.js의 클래스
 
 var Building = cc.Class({
     extends: cc.Component,
@@ -8,10 +9,6 @@ var Building = cc.Class({
         requireComponent: cc.Sprite
     },
     properties: {
-        디버그_라벨:{
-            default: null,
-            type:cc.Label
-        },
         전체_내구도:100,
         내구도: 100,
         수용_인구수: 100,
@@ -29,42 +26,19 @@ var Building = cc.Class({
         // karikera: 기타 필요한걸 가져와요
         this._collider = this.node.getComponent(cc.PolygonCollider);
         this._sprite = this.node.getComponent(cc.Sprite);
-        this.updateDebugLabel();
+        this.tilePos = util.toTileCoord(this.node.getPosition());
+        this.tileX = this.tilePos.x;
+        this.tileY = this.tilePos.y;
+
+        // karikera: 지하 1층 지반
+        this.지반1 = Ground.get(util.layer1, this.tilePos);
+
+        // karikera: 지하 2층 지반
+        this.지반2 = Ground.get(util.layer2, this.tilePos);
     },
     
-    // author: karikera
-    // tmx오브젝트로 부터 건물을 설정하고, tmx오브젝트를 지워요
-    // tmxobj: tmx 파일에서의 오브젝트에요
-    setTmxObject: function(tmxobj)
-    {
-        var tmxnode = tmxobj.getNode();
-        var node = this.node;
-        
-        // karikera: gid는 Tiled에서 볼 수 있는 타일의 ID에요
-        var gid = tmxobj.getGid();
-        
-        // karikera: tmxnode 위치 정보들을 node에 넣어요
-        var pos = tmxnode.getPosition();
-        var tmxnodep = tmxnode.parent;
-        pos.x -= tmxnodep.anchorX * tmxnodep.width;
-        pos.y -= tmxnodep.anchorY * tmxnodep.height;
-        node.setPosition(pos);
-        node.setAnchorPoint(tmxnode.getAnchorPoint());
-        node.zIndex = tmxnodep.height-node.y;
-        
-        // karikera: tmxnode의 스프라이트를 node에 넣어요
-        this._sprite = node.addComponent(cc.Sprite);
-        this._sprite.spriteFrame = tmxnode.getSpriteFrame();
-        
-        // karikera: tmxnode를 지워요
-        tmxnode.removeFromParent();
-    },
-    
-    onMouseDown: function(e){
-        if (Building.hover)
-        {
-            Disaster.selected.onDisaster(Building.hover, this.node.parent);
-        }
+    onMouseDown: function (e){
+        throw new Error("hittest pass");
     },
     onMouseMove: function(e){
         this._testCollider(e);
@@ -81,32 +55,30 @@ var Building = cc.Class({
         if (hover) this._sethover();
         else this._unhover();
     },
-    
-    // karikera: 디버그 라벨을 갱신시켜요
-    updateDebugLabel:function()
-    {
-        var text = "";
-        for(var p of ["인구수", "내구도"])
-        {
-            text += p +": " + this[p]+"\n";
-        }
-        text += "hover: " + (Building.hover == this);
-        this.디버그_라벨.string = text;
-    },
 
+    /** 
+     * @author karikera
+     * @description 디버그 라벨을 보여줘요!
+     *              고정된 수치를 보여줘서, 변경되면 다시 호출해야해요. 
+    */
+    showDebugLabel: function()
+    {
+        util.showDebugLabel(this, ["tileX", "tileY", "인구수", "내구도", "지반1", "지반2"]);
+    },
+    
     // karikera: 호버 상태로 바꿔요
     _sethover:  function(){
         if (Building.hover === this) return;
         Building.hover = this;
-        this.updateDebugLabel();
+        this.showDebugLabel();
     },
     
     // karikera: 호버 상태를 아니게 바꿔요
     _unhover:  function(){
         if (Building.hover !== this) return;
         Building.hover = null;
-        this.updateDebugLabel();
     },
     
 });
 
+module.exports = Building;

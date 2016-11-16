@@ -1,38 +1,38 @@
 
-// karikera: a~b 까지의 랜덤이에요!
+/**
+ * @author karikera
+ * @description a <= x < b 의 랜덤이에요!
+ * @param {number} a 숫자 범위 시작
+ * @param {number} b 숫자 범위 끝
+ * @return {number}
+ */
 function random(a, b)
 {
     return (b-a) * Math.random() + a;
 }
 
-// karikera: 건물 타일 거리를 구해요!
-function buildingDistance(a, b)
-{
-    var apos = a.node.getPosition();
-    var bpos = b.node.getPosition();
-    var DX = 64; 
-    var DY = 32;
-    var dx = (bpos.x - apos.x) / DX;
-    var dy = (bpos.y - apos.y) / DY;
-    
-    var x = dx + dy;
-    var y = dx - dy;
-    return Math.round(Math.abs(x) + Math.abs(y));
-}
-
-// karikera: 생성자에요
+/**
+ * @author karikera
+ * @description 재난 클래스에요!
+ */
 function Disaster()
 {
 }
 
-// karikera: 현재 선택되어있는 재난이에요
+/** 
+ * @type {Disaster}
+ * @description 현재 선택되어있는 재난이에요
+ */
 Disaster.selected = null;
 
-// karikera: 재난동작 부분이에요
-// 밑에서 각자 onDisaster를 따로 구현해요
-// 구현하지 않았으면 이 함수가 불릴거에요
-// target: 재난 대상
-// gameScene: GameScene 인스턴스
+/**
+ * @author karikera
+ * @description 재난동작 부분이에요!
+ *              밑에서 각자 onDisaster를 따로 구현해요
+ *              구현하지 않았으면 이 함수가 불릴거에요
+ * @param {Building} target 재난 대상
+ * @param {GameScene} gameScene GameScene 인스턴스
+ */
 Disaster.prototype.onDisaster = function(target, gameScene)
 {
     console.error("구현되지 않은 재난이에요!!");
@@ -54,7 +54,7 @@ Disaster.화재.onDisaster = function(target, gameScene)
     // 인구수를 h대미지만큼 감소
     target.인구수 -= Math.round(hdamage);
     // 자바스크립트는 기본적으로 실수 연산을 하기 때문에 Math.round로 반올림을 했어요!
-    target.updateDebugLabel();
+    target.showDebugLabel();
 };
 
 Disaster.지진 = new Disaster();
@@ -77,7 +77,9 @@ Disaster.지진.onDisaster = function(target, gameScene)
         
         // 거리 대미지 계산
         var damageper = 0;
-        var distance = buildingDistance(target, building);
+        var dx = Math.abs(target.tilePos.x - building.tilePos.x);
+        var dy = Math.abs(target.tilePos.y - building.tilePos.y);
+        var distance = dx + dy;
         if (distance === 0) damageper = 1;
         else if(distance <= 3) damageper = 0.8;
         else if(distance <= 6) damageper = 0.4;
@@ -92,10 +94,9 @@ Disaster.지진.onDisaster = function(target, gameScene)
         building.내구도 -= Math.round(ddamage);
         // 인구수를 h대미지만큼 감소
         building.인구수 -= Math.round(hdamage);
-        // 자바스크립트는 기본적으로 실수 연산을 하기 때문에 Math.round로 반올림을 했어요!
-        
-        building.updateDebugLabel();
+        // 자바스크립트는 기본적으로 실수 연산을 하기 때문에 Math.round로 반올림을 했어요!    
     }
+    target.showDebugLabel();
 };
 
 module.exports = Disaster;
