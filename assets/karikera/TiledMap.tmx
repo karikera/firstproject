@@ -3,21 +3,7 @@
  <tileset firstgid="1" name="tileset" tilewidth="65" tileheight="45" tilecount="32" columns="4">
   <image source="tileset.png" width="260" height="360"/>
  </tileset>
- <layer name="Under 2" width="10" height="10" offsetx="0" offsety="12">
-  <data encoding="csv">
-1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,
-2,1,1,1,1,1,1,1,1,2,
-2,2,1,1,1,1,1,1,2,2,
-2,2,2,1,1,1,1,2,2,2
-</data>
- </layer>
- <layer name="Under 1" width="10" height="10">
+ <layer name="Layer" width="10" height="10">
   <data encoding="csv">
 1,1,1,1,1,1,1,1,2,2,
 1,1,1,1,1,1,1,1,1,2,

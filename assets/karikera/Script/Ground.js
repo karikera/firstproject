@@ -1,13 +1,16 @@
 
 var util = require('./util');
+var grounds = {};
 
 /**
  * @author karikera
  * @description 지반 클래스에요!
+ * @param {number} id Tiled에서 아이디
  * @param {string} name 이름
  */
-function Ground(name)
+function Ground(id, name)
 {
+    grounds[id] = this; 
     this.name = name;
 }
 
@@ -18,12 +21,9 @@ Ground.prototype.toString = function()
     return "[지반:"+this.name+"]";
 };
 
-Ground.unknown = new Ground("unknown");
-
-var grounds = {};
-
-grounds[1] = new Ground("암석");
-grounds[2] = new Ground("흙");
+Ground.unknown = new Ground(0, "unknown");
+Ground.암석 = new Ground(1, "암석");
+Ground.흙 = new Ground(2, "흙");
 
 /**
  * @param {number} id

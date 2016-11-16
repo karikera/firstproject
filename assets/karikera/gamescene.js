@@ -4,7 +4,10 @@ var Disaster = require("./Script/Disaster"); // Disaster.js의 클래스
 var util = require('./Script/util'); // util.js의 클래스
 
 
-// karikera: GameScene 클래스 부분이에요
+/**
+ * @author karikera
+ * @description GameScene 클래스 부분이에요
+ */
 var GameScene = cc.Class({
     extends: cc.Component,
     editor: {
@@ -44,15 +47,6 @@ var GameScene = cc.Class({
     },
     
     // author: karikera 
-    // 재난 선택 부분이에요!
-    // 버튼이 직접 호출해요
-    // e: 이벤트 객체
-    // data: 버튼에서 넘겨주는 데이터
-    onSelectDisaster: function(e, data) {
-        Disaster.selected = Disaster[data];
-    },
-
-    // author: karikera 
     // 전체 건물을 목록을 가져와요!
     getBuildings:function()
     {
@@ -74,6 +68,16 @@ var GameScene = cc.Class({
         {
             Disaster.selected.onDisaster(Building.hover, this);
         }
+    },
+    
+    /**
+     * @author karikera
+     * @param {number} dt
+     */
+    update: function(dt)
+    {
+        // 디버그 레이블을 계속 갱신해요!
+        util.updateDebugLabel();
     },
 });
 

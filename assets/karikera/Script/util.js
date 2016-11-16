@@ -5,6 +5,12 @@ const DZ = 12; // karikera: 타일의 두께 세로 간격
 /** @type{cc.Label} */
 var debugLabel = null;
 
+/** @type {cc.Component} */
+var debugLabelComponent = null;
+
+/** @type {Array.<string>} */
+var debugLabelFields = null;
+
 /** @type{cc.Node} */
 var rootNode = null;
 
@@ -31,8 +37,7 @@ var util = {
     tiledHeight: 0,
     mapOffsetX: 0,
     mapOffsetY: 0,
-    layer1: null,
-    layer2: null,
+    layer: null,
 
     /**
      * @author karikera
@@ -45,21 +50,17 @@ var util = {
         /** @type{cc.TiledMap} */
         var tiledmap = rootNode.getComponent(cc.TiledMap);
         /** @type{cc.TiledLayer} */
-        var layer1 = tiledmap.getLayer("Under 1");
-        /** @type{cc.TiledLayer} */
-        var layer2 = tiledmap.getLayer("Under 2");
-        util.layer1 = layer1;
-        util.layer2 = layer2;
+        var layer = tiledmap.allLayers()[0];
+        util.layer = layer;
         
         var tilesize = tiledmap.getTileSize();
         var mapsize = tiledmap.getMapSize();
         util.tiledWidth = tilesize.width * mapsize.width;
         util.tiledHeight = tilesize.height * mapsize.height;
-        var firstCoord = layer1.getPositionAt(0,0);
+        var firstCoord = layer.getPositionAt(0,0);
         util.mapOffsetX = firstCoord.x - util.tiledWidth/2 + DX / 2;
         util.mapOffsetY = firstCoord.y - util.tiledHeight/2 + DY / 2 + DZ;
-        moveLayer(layer1, 0, 0);
-        moveLayer(layer2, 0, DZ);
+        moveLayer(layer, 0, 0);
     },
 
     // author: karikera
@@ -126,11 +127,14 @@ var util = {
 
     /**
      * @author karikera
-     * @param {cc.Component} component
-     * @param {Array.<string>} fields
+     * @description component 에 있는 속성들을 fields 배열에서 찾아서 글자로 띄워놔요!  
+     * @param {cc.Component} component 정보를 띄울 대상
+     * @param {Array.<string>} fields component에서 띄울 속성명들
      */
     showDebugLabel: function(component, fields)
     {
+        debugLabelComponent = component;
+        debugLabelFields = fields;
         if (debugLabel === null)
         {
             var node = new cc.Node;
@@ -139,12 +143,6 @@ var util = {
             debugLabel = node.addComponent(cc.Label);
             debugLabel.fontSize = 20;
         }
-        var text = "";
-        for(var i=0;i<fields.length;i++)
-        {
-            var p = fields[i];
-            text += p +": " + component[p]+"\n";
-        }  
         var op = debugLabel.node.parent;
         var np = component.node.parent;
         if (op !== np)
@@ -152,9 +150,53 @@ var util = {
             if(op) op.removeChild(debugLabel.node);
             np.addChild(debugLabel.node);
         }
-        debugLabel.node.x = component.node.x;
-        debugLabel.node.y = component.node.y;
+        this.updateDebugLabel();
+    },
+
+    /**
+     * @author karikera
+     * @description 디버그 레이블을 갱신해요! 
+     *              GameScene.update에서 항상 호출하고 있어서 따로 사용할 필요는 없어요 
+     */
+    updateDebugLabel: function()
+    {
+        if (debugLabel === null) return;
+        if (debugLabelComponent.node.parent === null)
+        {
+            util.hideDebugLabel();
+            return;
+        }
+        var text = "";
+        for(var i=0;i<debugLabelFields.length;i++)
+        {
+            var p = debugLabelFields[i];
+            text += p +": " + debugLabelComponent[p]+"\n";
+        }  
+        debugLabel.node.x = debugLabelComponent.node.x;
+        debugLabel.node.y = debugLabelComponent.node.y;
         debugLabel.string = text.substr(0, text.length-1); 
+    },
+
+    /**
+     * @author karikera
+     * @description 띄운 디버그 레이블을 없에요!
+     */
+    hideDebugLabel: function()
+    {
+        if (debugLabel === null) return;
+        debugLabel.node.removeFromParent();
+        debugLabel = null;
+        debugLabelComponent = null;
+        debugLabelFields = null;
+    },
+
+    /**
+     * @author karikera
+     * @description 디버그 라벨을 띄울 때 사용했던 컴포넌트를 가져와요!
+     */
+    getDebugLabelComponent: function()
+    {
+        return debugLabelComponent;
     },
 };
 
