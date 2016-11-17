@@ -1,6 +1,8 @@
 
-var Ground = require("./Ground"); // Ground.js의 클래스
+var Ground = require('./Ground'); // Ground.js의 클래스
 var Building = require('./Building'); // Building.js의 클래스
+var Material = require('./Material');
+var Stage = require('./Stage');
 var util = require('./util');
 
 
@@ -73,10 +75,10 @@ var Disaster = cc.Class({
 		switch(this.id)
 		{
 		case 1: // 지진
-			this.onDisaster = function(target, gameScene)
+			this.onDisaster = function(target, stage)
 			{
 				// 지진 발생시!
-				var buildings = gameScene.getBuildings();
+				var buildings = stage.getBuildings();
 				for(var i=0;i<buildings.length;i++)
 				{
 					var building = buildings[i];
@@ -141,9 +143,9 @@ var Disaster = cc.Class({
 	 * @author karikera
 	 * @description 재난동작 기본 동작이에요!
 	 * @param {Building} target 재난 대상
-	 * @param {GameScene} gameScene GameScene 인스턴스
+	 * @param {Stage} stage 스테이지
 	 */
-	onDisaster: function(target, gameScene)
+	onDisaster: function(target, stage)
 	{
 		this.damageTo(target);
 	},
@@ -186,7 +188,7 @@ var Disaster = cc.Class({
 	},
 	toString: function()
 	{
-		return "[재난:"+this.이름+"]";
+		return "[재난:"+this.이름+"#"+this.id+"]";
 	},
 });
 

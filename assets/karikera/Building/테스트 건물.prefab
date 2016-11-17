@@ -25,76 +25,12 @@
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
-      "y": 0.5
+      "y": 0.12
     },
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 60,
       "height": 121
-    },
-    "_children": [
-      {
-        "__id__": 2
-      }
-    ],
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
-    "_position": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 72
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_localZOrder": 0,
-    "_globalZOrder": 0,
-    "_tag": -1,
-    "_opacityModifyRGB": false,
-    "_id": "",
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 5
-      },
-      {
-        "__id__": 6
-      },
-      {
-        "__id__": 7
-      }
-    ],
-    "_prefab": {
-      "__id__": 8
-    },
-    "groupIndex": 0
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "디버그 라벨",
-    "_objFlags": 0,
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_cascadeOpacityEnabled": true,
-    "_parent": {
-      "__id__": 1
-    },
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 79,
-      "height": 15
     },
     "_children": [],
     "_rotationX": 0,
@@ -103,8 +39,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 71,
-      "y": 25
+      "x": -1.9,
+      "y": 30.6
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -116,44 +52,19 @@
     "_active": true,
     "_components": [
       {
+        "__id__": 2
+      },
+      {
         "__id__": 3
+      },
+      {
+        "__id__": 4
       }
     ],
     "_prefab": {
-      "__id__": 4
+      "__id__": 5
     },
     "groupIndex": 0
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 2
-    },
-    "_enabled": true,
-    "_useOriginalSize": false,
-    "_actualFontSize": 15,
-    "_fontSize": 15,
-    "_lineHeight": 15,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_N$string": "디버그 라벨",
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$overflow": 0
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__uuid__": "9a01f008-2af5-42ff-98f3-d4d2464d501c"
-    },
-    "fileId": "11194QbdkJBhKcSwkh9P5cf",
-    "sync": false
   },
   {
     "__type__": "cc.Sprite",
@@ -189,13 +100,11 @@
       "__id__": 1
     },
     "_enabled": true,
-    "디버그_라벨": {
-      "__id__": 3
-    },
     "전체_내구도": 100,
     "내구도": 100,
     "수용_인구수": 100,
-    "인구수": 100
+    "인구수": 100,
+    "지하실": false
   },
   {
     "__type__": "cc.PolygonCollider",
@@ -214,33 +123,33 @@
     "points": [
       {
         "__type__": "cc.Vec2",
-        "x": -31.9,
-        "y": -44.2
+        "x": -30,
+        "y": 3.9
       },
       {
         "__type__": "cc.Vec2",
-        "x": -25.8,
-        "y": 40.4
+        "x": -26.8,
+        "y": 83.7
       },
       {
         "__type__": "cc.Vec2",
-        "x": 1.1,
-        "y": 60
+        "x": 0.1,
+        "y": 108.1
       },
       {
         "__type__": "cc.Vec2",
-        "x": 27.4,
-        "y": 37.2
+        "x": 24.5,
+        "y": 83.4
       },
       {
         "__type__": "cc.Vec2",
-        "x": 29.1,
-        "y": -42.9
+        "x": 30.1,
+        "y": 0.4
       },
       {
         "__type__": "cc.Vec2",
-        "x": -0.7,
-        "y": -59.9
+        "x": 0.3,
+        "y": -13.7
       }
     ]
   },
@@ -250,9 +159,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "9a01f008-2af5-42ff-98f3-d4d2464d501c"
+      "__id__": 0
     },
-    "fileId": "3f62eglz0ZKeYPWfawRuCmE",
+    "fileId": "dbd554rWMtG1KcshiiiboMp",
     "sync": false
   }
 ]

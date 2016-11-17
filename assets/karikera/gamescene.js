@@ -1,6 +1,9 @@
 
-var Building = require("./Script/Building"); // Building.js의 클래스
-var Disaster = require("./Script/Disaster"); // Disaster.js의 클래스
+
+var Stage = require('./Script/Stage');
+var Building = require('./Script/Building'); // Building.js의 클래스
+var Disaster = require('./Script/Disaster'); // Disaster.js의 클래스
+var Mouse = require('./Script/Mouse');
 var util = require('./Script/util'); // util.js의 클래스
 
 
@@ -10,28 +13,41 @@ var util = require('./Script/util'); // util.js의 클래스
  */
 var GameScene = cc.Class({
     extends: cc.Component,
-    editor: {
-        requireComponent: cc.TiledMap
-    },
 
     properties: {
+		cover:{
+			default: null,
+			type: cc.Node
+		},
+		mouse:{
+			default: null,
+			type: Mouse
+		},
+		stageNode: {
+			default: null,
+			type: cc.Node
+		},
+		stages:{
+			default: [],
+			type: ['String']
+		},
     },
 
     // karikera: 초기화
     /** @this{GameScene} */
     onLoad: function () {
         console.log("onload");
+		
+		this.stage = null;
+		var that = this;
         
-        util.init(this);
+        cc.director.getCollisionManager().enabled = true;
+        cc.director.getCollisionManager().enabledDebugDraw = true;
+
+		Stage.loadStage(this.stageNode, this.stages[0], function(stage){ that.stage = stage; });
         
-        // karikera: 마우스 이벤트를 밑의 onMouse* 함수로 받을 수 있게 연결해요
-        util.linkMouseEvent(this.node, this);
-        
-        // karikera: 키보드 이벤트를 밑의 onKey* 함수로 받을 수 있게 연결해요
-        util.linkKeyEvent(this.node, this);
-    },
-    start: function(){
-        cc.view.setFrameSize(this.node.width, this.node.height);
+        // karikera: 키보드/마우스 이벤트를 밑의 on* 함수로 받을 수 있게 연결해요
+        util.linkInputEvent(this.cover, this);
     },
     // karikera: 키보드 눌렀을 때 동작
     onKeyPressed: function(keyCode, event) {
@@ -46,27 +62,18 @@ var GameScene = cc.Class({
         console.log("onKeyReleased");
     },
     
-    // author: karikera 
-    // 전체 건물을 목록을 가져와요!
-    getBuildings:function()
-    {
-        var out = [];
-        var count = this.node.childrenCount;
-        for(var i=0; i < count ; i++ )
-        {
-            var child = this.node.children[i];
-            var building = child.getComponent(Building);
-            if (building === null) continue;
-            out.push(building);
-        }
-        return out;
-    },
+	onMouseMove: function (e) {
+		/** @type {cc.Node} */
+		var cover = this.cover;
+		var pos = cover.convertToNodeSpaceAR(e.getLocation());
+		this.mouse.node.setPosition(pos);
+	},
     
     onMouseDown: function(e) {
         console.log("onMouseDown");
-        if (Building.hover)
+        if (this.mouse.hover)
         {
-            Disaster.selected.onDisaster(Building.hover, this);
+            Disaster.selected.onDisaster(this.mouse.hover, this.stage);
         }
     },
     
