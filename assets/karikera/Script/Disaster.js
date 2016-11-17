@@ -56,11 +56,14 @@ var Disaster = cc.Class({
 			default: DisaTarget.타일,
 			type: DisaTarget
 		},
+		타일_범위_X: 1,
+		타일_범위_Y: 1,
 		내구도_피해: "전체*0.1 + 현재*0.1 + 10",
 		인명_피해: "전체*0.1 + 현재*0.1 + 10",
 	},
 	statics: {
-		selected: null // 현재 선택되어있는 재난이에요
+		selected: null, // 현재 선택되어있는 재난이에요
+		Target: DisaTarget
 	},
 	onLoad: function()
 	{ 
@@ -72,21 +75,21 @@ var Disaster = cc.Class({
 		this.인명_피해 = new Function("현재", "전체", "return " + this.인명_피해);
 
 		// 각자의 특수 기능을 구현해요
-		switch(this.id)
+		switch(this.이름)
 		{
-		case 1: // 지진
-			this.onDisaster = function(target, stage)
+		case '지진':
+			this.disasterToTile = function(tilePos, stage)
 			{
 				// 지진 발생시!
-				var buildings = stage.getBuildings();
+				var buildings = Building.getAll();
 				for(var i=0;i<buildings.length;i++)
 				{
 					var building = buildings[i];
 
 					// 거리 대미지 계산
 					var damageper = 0;
-					var dx = Math.abs(target.tilePos.x - building.tilePos.x);
-					var dy = Math.abs(target.tilePos.y - building.tilePos.y);
+					var dx = Math.abs(tilePos.x - building.tilePos.x);
+					var dy = Math.abs(tilePos.y - building.tilePos.y);
 					var distance = dx + dy;
 					if (distance === 0) damageper = 1;
 					else if(distance <= 3) damageper = 0.8;
@@ -142,12 +145,73 @@ var Disaster = cc.Class({
 	/**
 	 * @author karikera
 	 * @description 재난동작 기본 동작이에요!
+	 * @param {cc.Vec2} tilepos 재난 위치
+	 * @param {Stage} stage 스테이지
+	 */
+	disasterToTile: function (tilepos, stage)
+	{
+		var width = this.타일_범위_X;
+		var height = this.타일_범위_Y;
+		var x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+
+		if (width === 0)
+		{
+			x1 = 0;
+			x2 = stage.width;
+		}
+		else
+		{
+			x1 = Math.floor(tilepos.x - width / 2);
+			x2 = x + width;
+		}
+
+		if (height === 0)
+		{
+			y1 = 0;
+			y2 = stage.height;
+		}
+		else
+		{
+			y1 = Math.floor(tilepos.y - height / 2);
+			y2 = y + height;
+		}
+
+		var bs = {};
+		for(var y = y1; y < y2; y ++)
+		{
+			for(var x = x1; x < x2; x ++)
+			{
+				var b = Building.get(cc.p(x, y));
+				bs[b.id] = b;
+			}
+		}
+		for(var bid in bs)
+		{
+			this.damageTo(bs[bid]);
+		}
+	},
+	/**
+	 * @author karikera
+	 * @description 재난동작 기본 동작이에요!
 	 * @param {Building} target 재난 대상
 	 * @param {Stage} stage 스테이지
 	 */
-	onDisaster: function(target, stage)
+	disasterToBuilding: function(target, stage)
 	{
 		this.damageTo(target);
+	},
+	/**
+	 * @author karikera
+	 * @description 재난동작 기본 동작이에요!
+	 * @param {Stage} stage 스테이지
+	 */
+	disasterToStage: function(stage)
+	{
+		var list = Building.getAll();
+		for(var i=0;i<list.length;i++)
+		{
+			this.damageTo(list[i]);
+		}
 	},
 	/**
 	 * @author karikera

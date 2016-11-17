@@ -26,7 +26,8 @@ var Stage = cc.Class({
 		loadStage: function(node, url, onload)
 		{
 			stageNode = node;
-			node.removeAllChildren();
+			if (node.children.length !== 0)
+				node.children[0].destroy();
 			
 			/**
 			 * @param {Error} err 
@@ -51,12 +52,7 @@ var Stage = cc.Class({
 					var child = children[i];
 					var building = child.getComponent(Building);
 					if (building === null) continue;
-
-					building.tilePos = stage.toTileCoord(child.getPosition());
-					building.tileX = building.tilePos.x;
-					building.tileY = building.tilePos.y;
-					child.zIndex = building.tileX + building.tileY;
-					building.지반 = stage.getGround(building.tilePos);
+					building.init(stage);
 				}
 				onload(stage);
 			}
@@ -84,10 +80,13 @@ var Stage = cc.Class({
 		var layer = tiledmap.allLayers()[0];
 		this.layer = layer;
 		
-		var tilesize = tiledmap.getTileSize();
 		var mapsize = tiledmap.getMapSize();
-		this.tiledWidth = tilesize.width * mapsize.width;
-		this.tiledHeight = tilesize.height * mapsize.height;
+		this.width = mapsize.width;
+		this.height = mapsize.height;
+
+		var tilesize = tiledmap.getTileSize();
+		this.tiledWidth = tilesize.width * this.width;
+		this.tiledHeight = tilesize.height * this.height;
 
 		var firstCoord = layer.getPositionAt(0,0);
 		this.mapOffsetX = firstCoord.x - this.tiledWidth/2 + DX / 2;
@@ -95,25 +94,6 @@ var Stage = cc.Class({
 		
 	},
 
-	/**
-	 * @author karikera
-	 * @description 건물을 목록을 배열로 가져와요! 
-	 */
-	getBuildings:function()
-	{
-		var out = [];
-		var container = this.node.parent;
-		var count = container.childrenCount;
-		for(var i=0; i < count ; i++ )
-		{
-			var node = container.children[i];
-			var building = node.getComponent(Building);
-			if (building === null) continue;
-			out.push(building);
-		}
-		return out;
-	},
-	
 	/**
 	 * @author karikera
 	 * @description 장면 상대 좌표에서 타일 좌표를 계산해요!

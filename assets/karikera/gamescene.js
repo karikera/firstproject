@@ -63,18 +63,27 @@ var GameScene = cc.Class({
     },
     
 	onMouseMove: function (e) {
-		/** @type {cc.Node} */
-		var cover = this.cover;
-		var pos = cover.convertToNodeSpaceAR(e.getLocation());
-		this.mouse.node.setPosition(pos);
+		this.mouse.node.setPosition(this.node.convertToNodeSpaceAR(e.getLocation()));
 	},
     
     onMouseDown: function(e) {
         console.log("onMouseDown");
-        if (this.mouse.hover)
-        {
-            Disaster.selected.onDisaster(this.mouse.hover, this.stage);
-        }
+		switch(Disaster.selected.대상)
+		{
+		case Disaster.Target.타일:
+			var tilePos = this.stage.toTileCoord(this.mouse.node.getPosition());
+			Disaster.selected.disasterToTile(tilePos, this.stage);
+			break;
+		case Disaster.Target.건물:
+			if (this.mouse.hover)
+			{
+				Disaster.selected.disasterToBuilding(this.mouse.hover, this.stage);
+			}
+			break;
+		case Disaster.Target.전체:
+			Disaster.selected.disasterToStage(this.stage);
+			break;
+		}
     },
     
     /**

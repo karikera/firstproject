@@ -102,7 +102,7 @@ var util = {
     updateDebugLabel: function()
     {
         if (debugLabel === null) return;
-        if (debugLabelComponent.node.parent === null)
+        if (debugLabelComponent.node === null || debugLabelComponent.node.parent === null)
         {
             util.hideDebugLabel();
             return;
@@ -125,7 +125,8 @@ var util = {
     hideDebugLabel: function()
     {
         if (debugLabel === null) return;
-        debugLabel.node.removeFromParent();
+		if (debugLabel.node !== null)
+        	debugLabel.node.destroy();
         debugLabel = null;
         debugLabelComponent = null;
         debugLabelFields = null;

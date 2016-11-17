@@ -1,8 +1,11 @@
 
 var util = require('./util'); // util.js
-var Disaster = require('./Disaster'); // Disaster.js
 var Ground = require('./Ground'); // Ground.js
 var Material = require('./Material'); // Material.js
+
+var id = 1;
+var buildingByPos = {};
+var buildings = {};
 
 var Building = cc.Class({
     extends: cc.Component,
@@ -22,6 +25,33 @@ var Building = cc.Class({
     },
     statics: {
         hover:null, // karikera: 현재 마우스 위에 있는 건물이에요
+
+		/**
+		 * @author karikera
+		 * @description 타일 좌표에서 건물을 가져와요!
+		 * @param {cc.Vec2} pos
+		 */
+		get: function(pos)
+		{
+			var b = buildingByPos[pos.x+","+pos.y];
+			if (!b) return null;
+			return b;
+		},
+			
+		/**
+		 * @author karikera
+		 * @description 건물을 목록을 배열로 가져와요! 
+		 */
+		getAll:function()
+		{
+			var out = [];
+			for(var p in buildingByPos)
+			{
+				out.push(buildingByPos[p]);
+			}
+			return out;
+		},
+		
     },
     
     onLoad: function()
@@ -38,7 +68,30 @@ var Building = cc.Class({
 		this.지반 = null;
 		this.node.zIndex = this.tileX + this.tileY;
         this.destroyed = false;
+
+		this.id = id++;
+		buildings[this.id] =this;
     },
+
+	onDestroy: function ()
+	{
+		this.destroyed = true;
+		delete buildingByPos[this.tileX+","+this.tileY];
+		delete buildings[this.id];
+	},
+
+	/**
+	 * @param {Stage} stage
+	 */
+	init: function(stage)
+	{
+		this.tilePos = stage.toTileCoord(this.node.getPosition());
+		this.tileX = this.tilePos.x;
+		this.tileY = this.tilePos.y;
+		this.node.zIndex = this.tileX + this.tileY;
+		this.지반 = stage.getGround(this.tilePos);
+		buildingByPos[this.tileX+","+this.tileY] = this;
+	},
     
     /**
      * @author karikera
@@ -54,8 +107,7 @@ var Building = cc.Class({
         // 내구도가 0보다 적으면 건물을 없애요
         if (this.내구도 <= 0)
         {
-            this.destroyed = true;
-            this.node.removeFromParent();
+			this.node.destroy();
         }
     },
 
