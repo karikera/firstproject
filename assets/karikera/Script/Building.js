@@ -1,7 +1,13 @@
+/**
+ * @fileOverview 건물 클래스에요! 건물 정보를 담고 있어요
+ * 				건물은 이 스크립트를 가지고 있어야해요!  
+ * @author karikera
+ */
 
 var util = require('./util'); // util.js
 var Ground = require('./Ground'); // Ground.js
 var Material = require('./Material'); // Material.js
+var DestroyingBuilding = require('./DestroyingBuilding'); // DestroyingBuilding.js
 
 var id = 1;
 var buildingByPos = {};
@@ -21,14 +27,16 @@ var Building = cc.Class({
 		자재: {
 			default: Material.흙,
 			type: Material,
-		}
+		},
+		크기_X: 1,
+		크기_Y: 1,
     },
     statics: {
         hover:null, // karikera: 현재 마우스 위에 있는 건물이에요
 
 		/**
 		 * @author karikera
-		 * @description 타일 좌표에서 건물을 가져와요!
+		 * @desc 타일 좌표에서 건물을 가져와요!
 		 * @param {cc.Vec2} pos
 		 */
 		get: function(pos)
@@ -40,7 +48,7 @@ var Building = cc.Class({
 			
 		/**
 		 * @author karikera
-		 * @description 건물을 목록을 배열로 가져와요! 
+		 * @desc 건물을 목록을 배열로 가져와요! 
 		 */
 		getAll:function()
 		{
@@ -69,14 +77,25 @@ var Building = cc.Class({
 		this.node.zIndex = this.tileX + this.tileY;
         this.destroyed = false;
 
-		this.id = id++;
+		this.id = id;
+		id = id + 1 | 0;
+		if (id < 0) id = 1;
+
 		buildings[this.id] =this;
     },
+
+	destroyWithEffect: function ()
+	{
+		/** @type {cc.Sprite} */
+		var sprite = this.node.getComponent(cc.Sprite);
+		DestroyingBuilding.create(this.node, sprite.spriteFrame);
+		this.node.destroy();
+	},
 
 	onDestroy: function ()
 	{
 		this.destroyed = true;
-		delete buildingByPos[this.tileX+","+this.tileY];
+		this.region((x,y)=>delete buildingByPos[x+","+y]);
 		delete buildings[this.id];
 	},
 
@@ -85,12 +104,15 @@ var Building = cc.Class({
 	 */
 	init: function(stage)
 	{
-		this.tilePos = stage.toTileCoord(this.node.getPosition());
+		this.tilePos = stage.toTileCoordFloat(this.node.getPosition());
+		this.node.zIndex = this.tilePos.x + this.tilePos.y;
+		this.tilePos.x = Math.round(this.tilePos.x - this.크기_X / 2);
+		this.tilePos.y = Math.round(this.tilePos.y - this.크기_Y / 2);
 		this.tileX = this.tilePos.x;
 		this.tileY = this.tilePos.y;
-		this.node.zIndex = this.tileX + this.tileY;
-		this.지반 = stage.getGround(this.tilePos);
-		buildingByPos[this.tileX+","+this.tileY] = this;
+		this.region = util.makeRegion(this.tilePos, this.크기_X, this.크기_Y);
+		this.지반 = stage.getGroundFromRegion(this.region);
+		this.region((x,y)=>buildingByPos[x+","+y] = this);
 	},
     
     /**
@@ -107,13 +129,13 @@ var Building = cc.Class({
         // 내구도가 0보다 적으면 건물을 없애요
         if (this.내구도 <= 0)
         {
-			this.node.destroy();
+			this.destroyWithEffect();
         }
     },
 
     /**
      * @author karikera
-     * @description 콜라이더에 마우스가 들어왔는지 테스트해요
+     * @desc 콜라이더에 마우스가 들어왔는지 테스트해요
      */
     _testCollider: function(e)
     {
@@ -125,7 +147,7 @@ var Building = cc.Class({
 
     /** 
      * @author karikera
-     * @description 디버그 라벨을 보여줘요!
+     * @desc 디버그 라벨을 보여줘요!
      *              고정된 수치를 보여줘서, 변경되면 다시 호출해야해요. 
     */
     showDebugLabel: function()

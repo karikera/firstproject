@@ -1,3 +1,7 @@
+/**
+ * @fileOverview 기타 함수 모음이에요! (클래스는 아니에요)
+ * @author karikera
+ */
 
 /** @type{cc.Label} */
 var debugLabel = null;
@@ -9,10 +13,35 @@ var debugLabelComponent = null;
 var debugLabelFields = null;
 
 var util = {
+
+	/**
+	 * @author karikera
+	 * @desc 해당 범위를 루프하는 함수를 만들어요!
+	 * @param {cc.Vec2} pos 위치
+	 * @param {number} width 넓이
+	 * @param {number} height 높이
+	 * @return {function(function(number,number))}
+	 */
+	makeRegion: function(pos, width, height)
+	{
+		return function(func){
+			var x1 = pos.x;
+			var x2 = x1 + width;
+			var y1 = pos.y;
+			var y2 = y1 + height;
+			for(var y=y1;y<y2;y++)
+			{
+				for(var x=x1;x<x2;x++)
+				{
+					func(x, y);
+				}
+			}
+		};
+	},
    
    /**
 	* @author karikera
-	* @description node에 발생하는 키보드 혹은 마우스 이벤트를 target.on* 함수로 받을 수 있게 연결해요
+	* @desc node에 발생하는 키보드 혹은 마우스 이벤트를 target.on* 함수로 받을 수 있게 연결해요
 	*				있는 함수만 연결되고, 없는 함수는 연결되지 않아요
 	*				마우스 이벤트: onMouseDown, onMouseUp, onMouseMove, onMouseLeave
 	*				키보드 이벤트: onKeyPressed, onKeyReleased
@@ -68,7 +97,7 @@ var util = {
 
     /**
      * @author karikera
-     * @description component 에 있는 속성들을 fields 배열에서 찾아서 글자로 띄워놔요!  
+     * @desc component 에 있는 속성들을 fields 배열에서 찾아서 글자로 띄워놔요!  
      * @param {cc.Component} component 정보를 띄울 대상
      * @param {Array.<string>} fields component에서 띄울 속성명들
      */
@@ -96,7 +125,7 @@ var util = {
 
     /**
      * @author karikera
-     * @description 디버그 레이블을 갱신해요! 
+     * @desc 디버그 레이블을 갱신해요! 
      *              GameScene.update에서 항상 호출하고 있어서 따로 사용할 필요는 없어요 
      */
     updateDebugLabel: function()
@@ -120,7 +149,7 @@ var util = {
 
     /**
      * @author karikera
-     * @description 띄운 디버그 레이블을 없에요!
+     * @desc 띄운 디버그 레이블을 없에요!
      */
     hideDebugLabel: function()
     {
@@ -134,7 +163,7 @@ var util = {
 
     /**
      * @author karikera
-     * @description 디버그 라벨을 띄울 때 사용했던 컴포넌트를 가져와요!
+     * @desc 디버그 라벨을 띄울 때 사용했던 컴포넌트를 가져와요!
      */
     getDebugLabelComponent: function()
     {

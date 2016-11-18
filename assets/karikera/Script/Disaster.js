@@ -1,3 +1,7 @@
+/**
+ * @fileOverview 재난 클래스에요! 재난 버튼은 이 스크립트를 가지고 있어야해요
+ * @author karikera
+ */
 
 var Ground = require('./Ground'); // Ground.js의 클래스
 var Building = require('./Building'); // Building.js의 클래스
@@ -23,7 +27,7 @@ var 지반_재난_상성표 = [
 
 /**
  * @author karikera
- * @description a <= x < b 의 랜덤이에요!
+ * @desc a <= x < b 의 랜덤이에요!
  * @param {number} a 숫자 범위 시작
  * @param {number} b 숫자 범위 끝
  * @return {number}
@@ -33,6 +37,10 @@ function random(a, b)
     return (b-a) * Math.random() + a;
 }
 
+/**
+ * @author karikera
+ * @desc 재난 대상 Enumerator에요!
+ */
 var DisaTarget = cc.Enum({
 	타일: -1,
 	건물: -1,
@@ -41,7 +49,7 @@ var DisaTarget = cc.Enum({
 
 /**
  * @author karikera
- * @description 재난 클래스에요!
+ * @desc 재난 클래스에요!
  */
 var Disaster = cc.Class({
 	extends: cc.Component,
@@ -107,7 +115,7 @@ var Disaster = cc.Class({
 	},
 	/**
 	 * @author karikera
-	 * @description 해당 지반과 자재의 상성을 계산해요!
+	 * @desc 해당 지반과 자재의 상성을 계산해요!
 	 * @param {Ground} ground
 	 * @param {number} material
 	 */
@@ -144,7 +152,7 @@ var Disaster = cc.Class({
 	},
 	/**
 	 * @author karikera
-	 * @description 재난동작 기본 동작이에요!
+	 * @desc 재난동작 기본 동작이에요!
 	 * @param {cc.Vec2} tilepos 재난 위치
 	 * @param {Stage} stage 스테이지
 	 */
@@ -192,7 +200,7 @@ var Disaster = cc.Class({
 	},
 	/**
 	 * @author karikera
-	 * @description 재난동작 기본 동작이에요!
+	 * @desc 재난동작 기본 동작이에요!
 	 * @param {Building} target 재난 대상
 	 * @param {Stage} stage 스테이지
 	 */
@@ -202,7 +210,7 @@ var Disaster = cc.Class({
 	},
 	/**
 	 * @author karikera
-	 * @description 재난동작 기본 동작이에요!
+	 * @desc 재난동작 기본 동작이에요!
 	 * @param {Stage} stage 스테이지
 	 */
 	disasterToStage: function(stage)
@@ -215,7 +223,7 @@ var Disaster = cc.Class({
 	},
 	/**
 	 * @author karikera
-	 * @description target에게만 재난 피해를 입혀요!
+	 * @desc target에게만 재난 피해를 입혀요!
 	 * 				이 함수를 사용해서 전체에게 적용시키는 구조에요
 	 * 				rate 는 비율이에요
 	 * @param {Building} target
@@ -243,7 +251,7 @@ var Disaster = cc.Class({
 	},
 	/**
 	 * @author karikera
-	 * @description 재난 버튼을 클릭했을 때에요!
+	 * @desc 재난 버튼을 클릭했을 때에요!
 	 */
 	onClick: function ()
 	{

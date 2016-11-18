@@ -100,11 +100,14 @@
       "__id__": 1
     },
     "_enabled": true,
-    "전체_내구도": 100,
-    "내구도": 100,
+    "전체_내구도": 150,
+    "내구도": 150,
     "수용_인구수": 100,
     "인구수": 100,
-    "지하실": false
+    "지하실": false,
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
   },
   {
     "__type__": "cc.PolygonCollider",
@@ -159,7 +162,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "35daafc7-bc8d-41a3-b3ff-241bea1d6aa8"
     },
     "fileId": "dbd554rWMtG1KcshiiiboMp",
     "sync": false

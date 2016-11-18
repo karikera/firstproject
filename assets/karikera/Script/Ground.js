@@ -1,9 +1,13 @@
+/**
+ * @fileOverview 지반 클래스에요! 다른 클래스와 다르게 일반적인 자바스크립트 클래스 문법으로 만들어져있어요  
+ * @author karikera
+ */
 
 var grounds = {};
 
 /**
  * @author karikera
- * @description 지반 클래스에요!
+ * @desc 지반 클래스에요!
  * @param {number} id Tiled에서 아이디
  * @param {string} name 이름
  */

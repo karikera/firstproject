@@ -1,4 +1,9 @@
-
+/**
+ * @fileOverview 스테이지 클래스에요!
+ * 				타일드맵 노드에는 이 스크립트가 사용되야해요 
+ * 				좌표에서 지반을 구해오는 등의 기능을 해요
+ * @author karikera
+ */
 var Ground = require('./Ground');
 var Building = require('./Building');
 
@@ -18,7 +23,7 @@ var Stage = cc.Class({
 		current: null,
 		/**
 		 * @author karikera
-		 * @description 노드 안에 스테이지를 불러와요!
+		 * @desc 노드 안에 스테이지를 불러와요!
 		 * @param {cc.Node} node
 		 * @param {string} url
 		 * @param {function(Stage)} onload
@@ -35,6 +40,7 @@ var Stage = cc.Class({
 			 */
 			function onLoad(err, prefab)
 			{
+				/** @type{cc.Node} */
 				var container = cc.instantiate(prefab);
 				node.addChild(container);
 				
@@ -96,20 +102,32 @@ var Stage = cc.Class({
 
 	/**
 	 * @author karikera
-	 * @description 장면 상대 좌표에서 타일 좌표를 계산해요!
+	 * @desc 장면 상대 좌표에서 타일 좌표를 계산해요!
+	 * 		타일좌표는 실수가 되요 
 	 */
-    toTileCoord: function(point)
+    toTileCoordFloat: function(point)
     {
         var x = (point.x - this.mapOffsetX) / DX;
         var y = (point.y - this.mapOffsetY) / DY;
-        var tx = Math.round(x - y);
-        var ty = Math.round(- y - x);
-        return cc.p(tx, ty);
+        return cc.p(x - y, - y - x);
+    },
+
+	/**
+	 * @author karikera
+	 * @desc 장면 상대 좌표에서 타일 좌표를 계산해요!
+	 * 		타일좌표는 정수가 되요 
+	 */
+    toTileCoord: function(point)
+    {
+		var np = this.toTileCoordFloat(point);
+        np.x = Math.round(np.x);
+        np.y = Math.round(np.y);
+        return np;
     },
 	
 	/**
 	 * @author karikera
-	 * @description point 타일 좌표에서 지반을 가져와요!
+	 * @desc point 타일 좌표에서 지반을 가져와요!
 	 * @param {cc.Vec2} point
 	 * @return {Ground}
 	 */
@@ -120,7 +138,31 @@ var Stage = cc.Class({
 
 	/**
 	 * @author karikera
-	 * @description point 좌표에서 지반을 가져와요!
+	 * @desc region에서 지반을 가져와요!
+	 * 		region 범위가 같은 지반이 아니면 경고를 띄워요
+	 * @param {function} region
+	 * @return {Ground}
+	 */
+	getGroundFromRegion: function(region)
+	{
+		var gid = -1;
+		region((x, y) => {
+			var ngid = this.layer.getTileGIDAt(cc.p(x, y));
+			if (gid === -1)
+			{
+				gid = ngid;
+			}
+			else if(gid !== ngid)
+			{
+				console.warn("("+x +","+ y+") 지점의 지반이 통일되어있지 않아요!");
+			} 
+		});
+		return Ground.getById(gid);
+	},
+
+	/**
+	 * @author karikera
+	 * @desc point 좌표에서 지반을 가져와요!
 	 * @param {cc.Vec2} point
 	 * @return {Ground}
 	 */

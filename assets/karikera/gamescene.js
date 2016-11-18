@@ -9,7 +9,7 @@ var util = require('./Script/util'); // util.js의 클래스
 
 /**
  * @author karikera
- * @description GameScene 클래스 부분이에요
+ * @desc GameScene 클래스 부분이에요
  */
 var GameScene = cc.Class({
     extends: cc.Component,

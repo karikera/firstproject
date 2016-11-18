@@ -1,3 +1,9 @@
+/**
+ * @fileOverview 마우스 클래스에요!
+ * 				일반 클릭은 건물이 직사각형 모양으로만 되서,
+ * 				정확히 구분하기 위해 마우스 노드와의 콜라이더를 이용한 충돌로 구현했어요!
+ * @author karikera
+ */
 
 var Building = require('./Building');
 
@@ -9,8 +15,8 @@ var Mouse = cc.Class({
 
     // use this for initialization
     onLoad: function () {
-		this.hover = null;
-		this.hovers = [];
+		this.hover = null; // 마우스 위에 있는 것 중 가장 앞에있는 건물이에요!
+		this.hovers = []; // 마우스 위에 있는 건물 목록이에요!
     },
 
 	/**
