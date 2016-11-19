@@ -1,2 +1,2 @@
-# hello-world
-Hello world new project template.
+# hello:world에서 시작하는 코코스 크리에이터 게임 만들기 프로젝트
+지전(계란을 풀어서 프라이팬에 얇게 구운 것)의 정확한 명칭을 찾고 있습니다.
