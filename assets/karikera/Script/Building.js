@@ -105,9 +105,9 @@ var Building = cc.Class({
 	init: function(stage)
 	{
 		this.tilePos = stage.toTileCoordFloat(this.node.getPosition());
+		this.tilePos.x = Math.round(this.tilePos.x - this.크기_X / 2 + 0.5);
+		this.tilePos.y = Math.round(this.tilePos.y - this.크기_Y / 2 + 0.5);
 		this.node.zIndex = this.tilePos.x + this.tilePos.y;
-		this.tilePos.x = Math.round(this.tilePos.x - this.크기_X / 2);
-		this.tilePos.y = Math.round(this.tilePos.y - this.크기_Y / 2);
 		this.node.setPosition(stage.fromTileCoord(this.tilePos));
 		this.tileX = this.tilePos.x;
 		this.tileY = this.tilePos.y;

@@ -15,6 +15,7 @@ var 자재_재난_상성표 = [
 	[1.3,	1.4,	1,		1.1,	1.4,	1.2,	1.5], // 흙
 	[1.5,	1.3,	1,		1.35,	1.55,	1.2,	1.4], // 나무
 	[1,		1,		1,		1,		1,		1,		1], // 콘크리트
+	[0,		0,		0,		0.05,	0,		0,		0], // 테스티움
 ];
 
 var 지반_재난_상성표 = [
@@ -28,6 +29,16 @@ var 지반_재난_상성표 = [
 
 /**
  * @author karikera
+ * @desc 재난 대상 Enumerator에요!
+ */
+var DisaTarget = cc.Enum({
+	타일: -1,
+	건물: -1,
+	전체: -1,
+});
+
+/**
+ * @author karikera
  * @desc a <= x < b 의 랜덤이에요!
  * @param {number} a 숫자 범위 시작
  * @param {number} b 숫자 범위 끝
@@ -37,16 +48,6 @@ function random(a, b)
 {
     return (b-a) * Math.random() + a;
 }
-
-/**
- * @author karikera
- * @desc 재난 대상 Enumerator에요!
- */
-var DisaTarget = cc.Enum({
-	타일: -1,
-	건물: -1,
-	전체: -1,
-});
 
 /**
  * @author karikera
