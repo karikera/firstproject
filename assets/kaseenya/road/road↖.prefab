@@ -10,7 +10,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "road",
+    "_name": "road↖",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -69,7 +69,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "acde42fe-4ab0-4e00-9f82-85bf0bb4aa3d"
+      "__uuid__": "a054f6ab-4768-4c1d-8756-2d73324ae3b3"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -92,9 +92,9 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "8c6b7b14-4411-4306-96d3-0120ba77d06e"
     },
-    "fileId": "1afe7XfxmlGMa4iUeirA1G/",
+    "fileId": "8b96es/OT5BRKDU+dNkANEq",
     "sync": false
   }
 ]
