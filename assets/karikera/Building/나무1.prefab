@@ -1,0 +1,190 @@
+[
+  {
+    "__type__": "cc.Prefab",
+    "_name": "",
+    "_objFlags": 0,
+    "_rawFiles": null,
+    "data": {
+      "__id__": 1
+    }
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "나무1",
+    "_objFlags": 0,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_parent": null,
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.08
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 25,
+      "height": 33
+    },
+    "_children": [],
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": -0.5,
+      "y": 30.5
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_tag": -1,
+    "_opacityModifyRGB": false,
+    "_id": "",
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 2
+      },
+      {
+        "__id__": 3
+      },
+      {
+        "__id__": 4
+      }
+    ],
+    "_prefab": {
+      "__id__": 5
+    },
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_spriteFrame": {
+      "__uuid__": "3e7caa17-3375-4e2e-a02b-351733c91c51"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
+  },
+  {
+    "__type__": "64050c14RhBB6F8B5ZbQPUN",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "전체_내구도": 150,
+    "내구도": 150,
+    "수용_인구수": 100,
+    "인구수": 100,
+    "지하실": false,
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
+  },
+  {
+    "__type__": "cc.PolygonCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": -0.6
+    },
+    "points": [
+      {
+        "__type__": "cc.Vec2",
+        "x": -12.6,
+        "y": 11.7
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -12.7,
+        "y": 25.1
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -0.3,
+        "y": 31
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 12.2,
+        "y": 25.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 12.1,
+        "y": 11.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 4.7,
+        "y": 7.7
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 4.7,
+        "y": 0.3
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 0.1,
+        "y": -2.7
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -4.8,
+        "y": -0.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -4.6,
+        "y": 7
+      }
+    ]
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "e2b5136c-6d7e-4226-88a5-06ad4dba9420"
+    },
+    "fileId": "dbd554rWMtG1KcshiiiboMp",
+    "sync": false
+  }
+]

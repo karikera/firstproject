@@ -56,6 +56,30 @@
       },
       {
         "__id__": 39
+      },
+      {
+        "__id__": 44
+      },
+      {
+        "__id__": 49
+      },
+      {
+        "__id__": 54
+      },
+      {
+        "__id__": 59
+      },
+      {
+        "__id__": 64
+      },
+      {
+        "__id__": 69
+      },
+      {
+        "__id__": 74
+      },
+      {
+        "__id__": 79
       }
     ],
     "_rotationX": 0,
@@ -77,7 +101,7 @@
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 44
+      "__id__": 84
     },
     "groupIndex": 0
   },
@@ -104,8 +128,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 640,
-      "height": 320
+      "width": 6400,
+      "height": 3200
     },
     "_children": [
       {
@@ -144,7 +168,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Layer",
+    "_name": "Ground",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -165,8 +189,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 640,
-      "height": 320
+      "width": 6400,
+      "height": 3200
     },
     "_children": [],
     "_rotationX": 0,
@@ -211,9 +235,9 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
     },
-    "fileId": "e1501+ZDbxInbUxMyHETT9B",
+    "fileId": "6c5a7RTdA9OW5XRHjuGs8xn",
     "sync": false
   },
   {
@@ -243,14 +267,14 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
     },
     "fileId": "c5563UjrbxH7aZsQpggWiek",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "테스트 건물",
+    "_name": "한옥",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -271,8 +295,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 121
+      "width": 65,
+      "height": 57
     },
     "_children": [],
     "_rotationX": 0,
@@ -281,8 +305,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0.4,
-      "y": 26.8
+      "x": -224,
+      "y": 165.4
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -317,7 +341,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "2ce0970a-8d6b-431b-9de5-88efa6d1d201"
+      "__uuid__": "d98d7129-340c-4380-b22e-4fdc528e94b2"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -342,10 +366,10 @@
       "__id__": 9
     },
     "_enabled": true,
-    "전체_내구도": 100,
-    "내구도": 100,
+    "전체_내구도": 300,
+    "내구도": 300,
     "수용_인구수": 100,
-    "인구수": 100,
+    "인구수": 10,
     "지하실": false,
     "자재": 0,
     "크기_X": 1,
@@ -368,33 +392,73 @@
     "points": [
       {
         "__type__": "cc.Vec2",
-        "x": -30,
-        "y": 3.9
+        "x": -32.54,
+        "y": 8.87
       },
       {
         "__type__": "cc.Vec2",
-        "x": -26.8,
-        "y": 83.7
+        "x": -32.53,
+        "y": 14.89
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -24.54,
+        "y": 18.97
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -24.64,
+        "y": 25.69
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.47,
+        "y": 29.95
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.46,
+        "y": 35.24
       },
       {
         "__type__": "cc.Vec2",
         "x": 0.1,
-        "y": 108.1
+        "y": 51.1
       },
       {
         "__type__": "cc.Vec2",
-        "x": 24.5,
-        "y": 83.4
+        "x": 32.45,
+        "y": 35.02
       },
       {
         "__type__": "cc.Vec2",
-        "x": 30.1,
-        "y": 0.4
+        "x": 32.5,
+        "y": 29.26
       },
       {
         "__type__": "cc.Vec2",
-        "x": 0.3,
-        "y": -13.7
+        "x": 24.73,
+        "y": 25.64
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 24.76,
+        "y": 18.5
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.48,
+        "y": 14.81
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.49,
+        "y": 9.31
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -0.03,
+        "y": -6.5
       }
     ]
   },
@@ -404,14 +468,14 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
     },
-    "fileId": "b9a86ZLiBxLMo9JCnLa3LS0",
+    "fileId": "c4647z2fvFI/aVlDFH+WCie",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "테스트 건물",
+    "_name": "한옥",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -432,8 +496,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 121
+      "width": 65,
+      "height": 57
     },
     "_children": [],
     "_rotationX": 0,
@@ -442,8 +506,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -35,
-      "y": 10
+      "x": -191.2,
+      "y": 147.8
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -478,7 +542,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "2ce0970a-8d6b-431b-9de5-88efa6d1d201"
+      "__uuid__": "d98d7129-340c-4380-b22e-4fdc528e94b2"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -503,10 +567,10 @@
       "__id__": 14
     },
     "_enabled": true,
-    "전체_내구도": 100,
-    "내구도": 100,
+    "전체_내구도": 300,
+    "내구도": 300,
     "수용_인구수": 100,
-    "인구수": 100,
+    "인구수": 10,
     "지하실": false,
     "자재": 0,
     "크기_X": 1,
@@ -529,33 +593,73 @@
     "points": [
       {
         "__type__": "cc.Vec2",
-        "x": -30,
-        "y": 3.9
+        "x": -32.54,
+        "y": 8.87
       },
       {
         "__type__": "cc.Vec2",
-        "x": -26.8,
-        "y": 83.7
+        "x": -32.53,
+        "y": 14.89
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -24.54,
+        "y": 18.97
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -24.64,
+        "y": 25.69
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.47,
+        "y": 29.95
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.46,
+        "y": 35.24
       },
       {
         "__type__": "cc.Vec2",
         "x": 0.1,
-        "y": 108.1
+        "y": 51.1
       },
       {
         "__type__": "cc.Vec2",
-        "x": 24.5,
-        "y": 83.4
+        "x": 32.45,
+        "y": 35.02
       },
       {
         "__type__": "cc.Vec2",
-        "x": 30.1,
-        "y": 0.4
+        "x": 32.5,
+        "y": 29.26
       },
       {
         "__type__": "cc.Vec2",
-        "x": 0.3,
-        "y": -13.7
+        "x": 24.73,
+        "y": 25.64
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 24.76,
+        "y": 18.5
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.48,
+        "y": 14.81
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.49,
+        "y": 9.31
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -0.03,
+        "y": -6.5
       }
     ]
   },
@@ -565,14 +669,14 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
     },
-    "fileId": "49d02ZbellBpLzI9YTUHZav",
+    "fileId": "395928WrzZHiJId/w5eLryD",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "테스트 건물",
+    "_name": "빌딩",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -593,8 +697,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 121
+      "width": 65,
+      "height": 113
     },
     "_children": [],
     "_rotationX": 0,
@@ -603,8 +707,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 33.2,
-      "y": 11.1
+      "x": -224,
+      "y": 44
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -639,7 +743,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "2ce0970a-8d6b-431b-9de5-88efa6d1d201"
+      "__uuid__": "656d8d59-c1cf-4a3a-b122-bf502b155dab"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -664,10 +768,10 @@
       "__id__": 19
     },
     "_enabled": true,
-    "전체_내구도": 100,
-    "내구도": 100,
-    "수용_인구수": 100,
-    "인구수": 100,
+    "전체_내구도": 500,
+    "내구도": 500,
+    "수용_인구수": 300,
+    "인구수": 150,
     "지하실": false,
     "자재": 0,
     "크기_X": 1,
@@ -690,33 +794,33 @@
     "points": [
       {
         "__type__": "cc.Vec2",
-        "x": -30,
-        "y": 3.9
+        "x": -32.5,
+        "y": 2.4
       },
       {
         "__type__": "cc.Vec2",
-        "x": -26.8,
-        "y": 83.7
+        "x": -32.5,
+        "y": 84.6
       },
       {
         "__type__": "cc.Vec2",
-        "x": 0.1,
-        "y": 108.1
+        "x": 0,
+        "y": 100
       },
       {
         "__type__": "cc.Vec2",
-        "x": 24.5,
-        "y": 83.4
+        "x": 32.5,
+        "y": 84.6
       },
       {
         "__type__": "cc.Vec2",
-        "x": 30.1,
-        "y": 0.4
+        "x": 32.5,
+        "y": 2.4
       },
       {
         "__type__": "cc.Vec2",
-        "x": 0.3,
-        "y": -13.7
+        "x": 0,
+        "y": -13
       }
     ]
   },
@@ -726,14 +830,14 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
     },
-    "fileId": "e20974S0OJDJ5Q6ojYamx7U",
+    "fileId": "5d662oh7llERrTT0+9prsdY",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "테스트 건물",
+    "_name": "빌딩",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -754,8 +858,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 121
+      "width": 65,
+      "height": 113
     },
     "_children": [],
     "_rotationX": 0,
@@ -764,8 +868,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 96.6,
-      "y": 43.2
+      "x": -283,
+      "y": 12
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -800,7 +904,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "2ce0970a-8d6b-431b-9de5-88efa6d1d201"
+      "__uuid__": "656d8d59-c1cf-4a3a-b122-bf502b155dab"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -825,10 +929,10 @@
       "__id__": 24
     },
     "_enabled": true,
-    "전체_내구도": 100,
-    "내구도": 100,
-    "수용_인구수": 100,
-    "인구수": 100,
+    "전체_내구도": 500,
+    "내구도": 500,
+    "수용_인구수": 300,
+    "인구수": 150,
     "지하실": false,
     "자재": 0,
     "크기_X": 1,
@@ -851,33 +955,33 @@
     "points": [
       {
         "__type__": "cc.Vec2",
-        "x": -30,
-        "y": 3.9
+        "x": -32.5,
+        "y": 2.4
       },
       {
         "__type__": "cc.Vec2",
-        "x": -26.8,
-        "y": 83.7
+        "x": -32.5,
+        "y": 84.6
       },
       {
         "__type__": "cc.Vec2",
-        "x": 0.1,
-        "y": 108.1
+        "x": 0,
+        "y": 100
       },
       {
         "__type__": "cc.Vec2",
-        "x": 24.5,
-        "y": 83.4
+        "x": 32.5,
+        "y": 84.6
       },
       {
         "__type__": "cc.Vec2",
-        "x": 30.1,
-        "y": 0.4
+        "x": 32.5,
+        "y": 2.4
       },
       {
         "__type__": "cc.Vec2",
-        "x": 0.3,
-        "y": -13.7
+        "x": 0,
+        "y": -13
       }
     ]
   },
@@ -887,14 +991,14 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
     },
-    "fileId": "538b72yWaROzK8Ga+HxkYZW",
+    "fileId": "5d662oh7llERrTT0+9prsdY",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "테스트 건물",
+    "_name": "빌딩",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -915,8 +1019,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 121
+      "width": 65,
+      "height": 113
     },
     "_children": [],
     "_rotationX": 0,
@@ -925,8 +1029,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 1.2,
-      "y": -6.9
+      "x": -354,
+      "y": -22
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -961,7 +1065,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "2ce0970a-8d6b-431b-9de5-88efa6d1d201"
+      "__uuid__": "656d8d59-c1cf-4a3a-b122-bf502b155dab"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -986,10 +1090,10 @@
       "__id__": 29
     },
     "_enabled": true,
-    "전체_내구도": 100,
-    "내구도": 100,
-    "수용_인구수": 100,
-    "인구수": 100,
+    "전체_내구도": 500,
+    "내구도": 500,
+    "수용_인구수": 300,
+    "인구수": 150,
     "지하실": false,
     "자재": 0,
     "크기_X": 1,
@@ -1012,33 +1116,33 @@
     "points": [
       {
         "__type__": "cc.Vec2",
-        "x": -30,
-        "y": 3.9
+        "x": -32.5,
+        "y": 2.4
       },
       {
         "__type__": "cc.Vec2",
-        "x": -26.8,
-        "y": 83.7
+        "x": -32.5,
+        "y": 84.6
       },
       {
         "__type__": "cc.Vec2",
-        "x": 0.1,
-        "y": 108.1
+        "x": 0,
+        "y": 100
       },
       {
         "__type__": "cc.Vec2",
-        "x": 24.5,
-        "y": 83.4
+        "x": 32.5,
+        "y": 84.6
       },
       {
         "__type__": "cc.Vec2",
-        "x": 30.1,
-        "y": 0.4
+        "x": 32.5,
+        "y": 2.4
       },
       {
         "__type__": "cc.Vec2",
-        "x": 0.3,
-        "y": -13.7
+        "x": 0,
+        "y": -13
       }
     ]
   },
@@ -1048,14 +1152,14 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
     },
-    "fileId": "a35c87/rvJAN4IjFLgVHsql",
+    "fileId": "5d662oh7llERrTT0+9prsdY",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "테스트 건물",
+    "_name": "빌딩",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -1076,8 +1180,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 121
+      "width": 65,
+      "height": 113
     },
     "_children": [],
     "_rotationX": 0,
@@ -1086,8 +1190,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 33,
-      "y": -51
+      "x": -160,
+      "y": 12
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1122,7 +1226,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "2ce0970a-8d6b-431b-9de5-88efa6d1d201"
+      "__uuid__": "656d8d59-c1cf-4a3a-b122-bf502b155dab"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -1147,10 +1251,10 @@
       "__id__": 34
     },
     "_enabled": true,
-    "전체_내구도": 100,
-    "내구도": 100,
-    "수용_인구수": 100,
-    "인구수": 100,
+    "전체_내구도": 500,
+    "내구도": 500,
+    "수용_인구수": 300,
+    "인구수": 150,
     "지하실": false,
     "자재": 0,
     "크기_X": 1,
@@ -1173,33 +1277,33 @@
     "points": [
       {
         "__type__": "cc.Vec2",
-        "x": -30,
-        "y": 3.9
+        "x": -32.5,
+        "y": 2.4
       },
       {
         "__type__": "cc.Vec2",
-        "x": -26.8,
-        "y": 83.7
+        "x": -32.5,
+        "y": 84.6
       },
       {
         "__type__": "cc.Vec2",
-        "x": 0.1,
-        "y": 108.1
+        "x": 0,
+        "y": 100
       },
       {
         "__type__": "cc.Vec2",
-        "x": 24.5,
-        "y": 83.4
+        "x": 32.5,
+        "y": 84.6
       },
       {
         "__type__": "cc.Vec2",
-        "x": 30.1,
-        "y": 0.4
+        "x": 32.5,
+        "y": 2.4
       },
       {
         "__type__": "cc.Vec2",
-        "x": 0.3,
-        "y": -13.7
+        "x": 0,
+        "y": -13
       }
     ]
   },
@@ -1209,14 +1313,14 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
     },
-    "fileId": "7a7e4Mpc2dGhLmI9S94Ydg1",
+    "fileId": "5d662oh7llERrTT0+9prsdY",
     "sync": false
   },
   {
     "__type__": "cc.Node",
-    "_name": "테스트 건물",
+    "_name": "빌딩",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -1237,8 +1341,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 121
+      "width": 65,
+      "height": 113
     },
     "_children": [],
     "_rotationX": 0,
@@ -1247,8 +1351,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -126.4,
-      "y": -37
+      "x": -295,
+      "y": -55
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1283,7 +1387,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "2ce0970a-8d6b-431b-9de5-88efa6d1d201"
+      "__uuid__": "656d8d59-c1cf-4a3a-b122-bf502b155dab"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -1308,10 +1412,10 @@
       "__id__": 39
     },
     "_enabled": true,
-    "전체_내구도": 100,
-    "내구도": 100,
-    "수용_인구수": 100,
-    "인구수": 100,
+    "전체_내구도": 500,
+    "내구도": 500,
+    "수용_인구수": 300,
+    "인구수": 150,
     "지하실": false,
     "자재": 0,
     "크기_X": 1,
@@ -1334,33 +1438,33 @@
     "points": [
       {
         "__type__": "cc.Vec2",
-        "x": -30,
-        "y": 3.9
+        "x": -32.5,
+        "y": 2.4
       },
       {
         "__type__": "cc.Vec2",
-        "x": -26.8,
-        "y": 83.7
+        "x": -32.5,
+        "y": 84.6
       },
       {
         "__type__": "cc.Vec2",
-        "x": 0.1,
-        "y": 108.1
+        "x": 0,
+        "y": 100
       },
       {
         "__type__": "cc.Vec2",
-        "x": 24.5,
-        "y": 83.4
+        "x": 32.5,
+        "y": 84.6
       },
       {
         "__type__": "cc.Vec2",
-        "x": 30.1,
-        "y": 0.4
+        "x": 32.5,
+        "y": 2.4
       },
       {
         "__type__": "cc.Vec2",
-        "x": 0.3,
-        "y": -13.7
+        "x": 0,
+        "y": -13
       }
     ]
   },
@@ -1370,9 +1474,1457 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
     },
-    "fileId": "1e23bIkGMlCAI3VTBoPIQE8",
+    "fileId": "5d662oh7llERrTT0+9prsdY",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "종합상가",
+    "_objFlags": 0,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_parent": {
+      "__id__": 1
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.12
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 65,
+      "height": 73
+    },
+    "_children": [],
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": -381,
+      "y": 119
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_tag": -1,
+    "_opacityModifyRGB": false,
+    "_id": "",
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 45
+      },
+      {
+        "__id__": 46
+      },
+      {
+        "__id__": 47
+      }
+    ],
+    "_prefab": {
+      "__id__": 48
+    },
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 44
+    },
+    "_enabled": true,
+    "_spriteFrame": {
+      "__uuid__": "a6f6e9e9-7a36-4fec-901d-99a8a768760a"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
+  },
+  {
+    "__type__": "64050c14RhBB6F8B5ZbQPUN",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 44
+    },
+    "_enabled": true,
+    "전체_내구도": 300,
+    "내구도": 300,
+    "수용_인구수": 200,
+    "인구수": 150,
+    "지하실": false,
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
+  },
+  {
+    "__type__": "cc.PolygonCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 44
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": -0.6
+    },
+    "points": [
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.2,
+        "y": 7.1
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.4,
+        "y": 12
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -24.7,
+        "y": 16.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -24.6,
+        "y": 53
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 0,
+        "y": 64.8
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 24.8,
+        "y": 53
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 24.9,
+        "y": 16.6
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.4,
+        "y": 12.7
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.4,
+        "y": 7.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 0.1,
+        "y": -8.4
+      }
+    ]
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+    },
+    "fileId": "93e4a/cJNdDMrjvjwESu2xE",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "종합상가",
+    "_objFlags": 0,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_parent": {
+      "__id__": 1
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.12
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 65,
+      "height": 73
+    },
+    "_children": [],
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": -449,
+      "y": 88
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_tag": -1,
+    "_opacityModifyRGB": false,
+    "_id": "",
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 50
+      },
+      {
+        "__id__": 51
+      },
+      {
+        "__id__": 52
+      }
+    ],
+    "_prefab": {
+      "__id__": 53
+    },
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 49
+    },
+    "_enabled": true,
+    "_spriteFrame": {
+      "__uuid__": "a6f6e9e9-7a36-4fec-901d-99a8a768760a"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
+  },
+  {
+    "__type__": "64050c14RhBB6F8B5ZbQPUN",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 49
+    },
+    "_enabled": true,
+    "전체_내구도": 300,
+    "내구도": 300,
+    "수용_인구수": 200,
+    "인구수": 150,
+    "지하실": false,
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
+  },
+  {
+    "__type__": "cc.PolygonCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 49
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": -0.6
+    },
+    "points": [
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.2,
+        "y": 7.1
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.4,
+        "y": 12
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -24.7,
+        "y": 16.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -24.6,
+        "y": 53
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 0,
+        "y": 64.8
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 24.8,
+        "y": 53
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 24.9,
+        "y": 16.6
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.4,
+        "y": 12.7
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.4,
+        "y": 7.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 0.1,
+        "y": -8.4
+      }
+    ]
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+    },
+    "fileId": "93e4a/cJNdDMrjvjwESu2xE",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "빌딩",
+    "_objFlags": 0,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_parent": {
+      "__id__": 1
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.12
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 65,
+      "height": 113
+    },
+    "_children": [],
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": -414.5,
+      "y": -53.6
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_tag": -1,
+    "_opacityModifyRGB": false,
+    "_id": "",
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 55
+      },
+      {
+        "__id__": 56
+      },
+      {
+        "__id__": 57
+      }
+    ],
+    "_prefab": {
+      "__id__": 58
+    },
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 54
+    },
+    "_enabled": true,
+    "_spriteFrame": {
+      "__uuid__": "656d8d59-c1cf-4a3a-b122-bf502b155dab"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
+  },
+  {
+    "__type__": "64050c14RhBB6F8B5ZbQPUN",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 54
+    },
+    "_enabled": true,
+    "전체_내구도": 500,
+    "내구도": 500,
+    "수용_인구수": 300,
+    "인구수": 150,
+    "지하실": false,
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
+  },
+  {
+    "__type__": "cc.PolygonCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 54
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": -0.6
+    },
+    "points": [
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.5,
+        "y": 2.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.5,
+        "y": 84.6
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 0,
+        "y": 100
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.5,
+        "y": 84.6
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.5,
+        "y": 2.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 0,
+        "y": -13
+      }
+    ]
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+    },
+    "fileId": "5d662oh7llERrTT0+9prsdY",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "빌딩",
+    "_objFlags": 0,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_parent": {
+      "__id__": 1
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.12
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 65,
+      "height": 113
+    },
+    "_children": [],
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": -226,
+      "y": -22
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_tag": -1,
+    "_opacityModifyRGB": false,
+    "_id": "",
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 60
+      },
+      {
+        "__id__": 61
+      },
+      {
+        "__id__": 62
+      }
+    ],
+    "_prefab": {
+      "__id__": 63
+    },
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 59
+    },
+    "_enabled": true,
+    "_spriteFrame": {
+      "__uuid__": "656d8d59-c1cf-4a3a-b122-bf502b155dab"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
+  },
+  {
+    "__type__": "64050c14RhBB6F8B5ZbQPUN",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 59
+    },
+    "_enabled": true,
+    "전체_내구도": 500,
+    "내구도": 500,
+    "수용_인구수": 300,
+    "인구수": 150,
+    "지하실": false,
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
+  },
+  {
+    "__type__": "cc.PolygonCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 59
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": -0.6
+    },
+    "points": [
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.5,
+        "y": 2.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.5,
+        "y": 84.6
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 0,
+        "y": 100
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.5,
+        "y": 84.6
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.5,
+        "y": 2.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 0,
+        "y": -13
+      }
+    ]
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+    },
+    "fileId": "5d662oh7llERrTT0+9prsdY",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "종합상가",
+    "_objFlags": 0,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_parent": {
+      "__id__": 1
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.12
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 65,
+      "height": 73
+    },
+    "_children": [],
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": -254.6,
+      "y": -106.5
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_tag": -1,
+    "_opacityModifyRGB": false,
+    "_id": "",
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 65
+      },
+      {
+        "__id__": 66
+      },
+      {
+        "__id__": 67
+      }
+    ],
+    "_prefab": {
+      "__id__": 68
+    },
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 64
+    },
+    "_enabled": true,
+    "_spriteFrame": {
+      "__uuid__": "a6f6e9e9-7a36-4fec-901d-99a8a768760a"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
+  },
+  {
+    "__type__": "64050c14RhBB6F8B5ZbQPUN",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 64
+    },
+    "_enabled": true,
+    "전체_내구도": 300,
+    "내구도": 300,
+    "수용_인구수": 200,
+    "인구수": 150,
+    "지하실": false,
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
+  },
+  {
+    "__type__": "cc.PolygonCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 64
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": -0.6
+    },
+    "points": [
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.2,
+        "y": 7.1
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.4,
+        "y": 12
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -24.7,
+        "y": 16.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -24.6,
+        "y": 53
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 0,
+        "y": 64.8
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 24.8,
+        "y": 53
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 24.9,
+        "y": 16.6
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.4,
+        "y": 12.7
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.4,
+        "y": 7.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 0.1,
+        "y": -8.4
+      }
+    ]
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+    },
+    "fileId": "49a27h8yBtHDL3/BsujT5VP",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "종합상가",
+    "_objFlags": 0,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_parent": {
+      "__id__": 1
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.12
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 65,
+      "height": 73
+    },
+    "_children": [],
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": -288.5,
+      "y": -124.7
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_tag": -1,
+    "_opacityModifyRGB": false,
+    "_id": "",
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 70
+      },
+      {
+        "__id__": 71
+      },
+      {
+        "__id__": 72
+      }
+    ],
+    "_prefab": {
+      "__id__": 73
+    },
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 69
+    },
+    "_enabled": true,
+    "_spriteFrame": {
+      "__uuid__": "a6f6e9e9-7a36-4fec-901d-99a8a768760a"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
+  },
+  {
+    "__type__": "64050c14RhBB6F8B5ZbQPUN",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 69
+    },
+    "_enabled": true,
+    "전체_내구도": 300,
+    "내구도": 300,
+    "수용_인구수": 200,
+    "인구수": 150,
+    "지하실": false,
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
+  },
+  {
+    "__type__": "cc.PolygonCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 69
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": -0.6
+    },
+    "points": [
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.2,
+        "y": 7.1
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.4,
+        "y": 12
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -24.7,
+        "y": 16.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -24.6,
+        "y": 53
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 0,
+        "y": 64.8
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 24.8,
+        "y": 53
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 24.9,
+        "y": 16.6
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.4,
+        "y": 12.7
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.4,
+        "y": 7.4
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 0.1,
+        "y": -8.4
+      }
+    ]
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+    },
+    "fileId": "c7684fbSVVHT5RGgtM3XGeU",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "한옥",
+    "_objFlags": 0,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_parent": {
+      "__id__": 1
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.12
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 65,
+      "height": 57
+    },
+    "_children": [],
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": -157.7,
+      "y": 131.6
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_tag": -1,
+    "_opacityModifyRGB": false,
+    "_id": "",
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 75
+      },
+      {
+        "__id__": 76
+      },
+      {
+        "__id__": 77
+      }
+    ],
+    "_prefab": {
+      "__id__": 78
+    },
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 74
+    },
+    "_enabled": true,
+    "_spriteFrame": {
+      "__uuid__": "d98d7129-340c-4380-b22e-4fdc528e94b2"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
+  },
+  {
+    "__type__": "64050c14RhBB6F8B5ZbQPUN",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 74
+    },
+    "_enabled": true,
+    "전체_내구도": 300,
+    "내구도": 300,
+    "수용_인구수": 100,
+    "인구수": 10,
+    "지하실": false,
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
+  },
+  {
+    "__type__": "cc.PolygonCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 74
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": -0.6
+    },
+    "points": [
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.54,
+        "y": 8.87
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.53,
+        "y": 14.89
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -24.54,
+        "y": 18.97
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -24.64,
+        "y": 25.69
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.47,
+        "y": 29.95
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.46,
+        "y": 35.24
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 0.1,
+        "y": 51.1
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.45,
+        "y": 35.02
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.5,
+        "y": 29.26
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 24.73,
+        "y": 25.64
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 24.76,
+        "y": 18.5
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.48,
+        "y": 14.81
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.49,
+        "y": 9.31
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -0.03,
+        "y": -6.5
+      }
+    ]
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+    },
+    "fileId": "637eca11PBDF4bn4N+4Xacn",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "한옥",
+    "_objFlags": 0,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_cascadeOpacityEnabled": true,
+    "_parent": {
+      "__id__": 1
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.12
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 65,
+      "height": 57
+    },
+    "_children": [],
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_scaleX": 1,
+    "_scaleY": 1,
+    "_position": {
+      "__type__": "cc.Vec2",
+      "x": -125.7,
+      "y": 116
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_localZOrder": 0,
+    "_globalZOrder": 0,
+    "_tag": -1,
+    "_opacityModifyRGB": false,
+    "_id": "",
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 80
+      },
+      {
+        "__id__": 81
+      },
+      {
+        "__id__": 82
+      }
+    ],
+    "_prefab": {
+      "__id__": 83
+    },
+    "groupIndex": 0
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 79
+    },
+    "_enabled": true,
+    "_spriteFrame": {
+      "__uuid__": "d98d7129-340c-4380-b22e-4fdc528e94b2"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
+  },
+  {
+    "__type__": "64050c14RhBB6F8B5ZbQPUN",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 79
+    },
+    "_enabled": true,
+    "전체_내구도": 300,
+    "내구도": 300,
+    "수용_인구수": 100,
+    "인구수": 10,
+    "지하실": false,
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
+  },
+  {
+    "__type__": "cc.PolygonCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 79
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": -0.6
+    },
+    "points": [
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.54,
+        "y": 8.87
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.53,
+        "y": 14.89
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -24.54,
+        "y": 18.97
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -24.64,
+        "y": 25.69
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.47,
+        "y": 29.95
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -32.46,
+        "y": 35.24
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 0.1,
+        "y": 51.1
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.45,
+        "y": 35.02
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.5,
+        "y": 29.26
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 24.73,
+        "y": 25.64
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 24.76,
+        "y": 18.5
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.48,
+        "y": 14.81
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 32.49,
+        "y": 9.31
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -0.03,
+        "y": -6.5
+      }
+    ]
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+    },
+    "fileId": "eb393oug7dM9q+HJ9w+lkSM",
     "sync": false
   },
   {
@@ -1381,7 +2933,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
     },
     "fileId": "ea1ceDbqANO6I70TtIn+7ZZ",
     "sync": false

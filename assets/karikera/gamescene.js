@@ -58,7 +58,7 @@ var GameScene = cc.Class({
         
 		// karikera: 콜라이더 사용 설정과, 콜라이더에 선을 그려요!
         cc.director.getCollisionManager().enabled = true;
-        cc.director.getCollisionManager().enabledDebugDraw = true;
+        //cc.director.getCollisionManager().enabledDebugDraw = true;
 
 		Stage.loadStage(this.node, this.stages[0], function(stage){ 
 			that.stage = stage;

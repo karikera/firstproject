@@ -119,7 +119,23 @@ var Stage = cc.Class({
 	/**
 	 * @author karikera
 	 * @desc 장면 상대 좌표에서 타일 좌표를 계산해요!
+	 * 		타일좌표는 실수가 되요
+	 * @param {cc.Vec2} coord 
+	 */
+    fromTileCoord: function(coord)
+    {
+		var x = coord.x - coord.y;
+		var y = - coord.x - coord.y;
+		x = x / 2 * DX + this.mapOffsetX;
+		y = y / 2 * DY + this.mapOffsetY;
+        return cc.p(x, y);
+    },
+
+	/**
+	 * @author karikera
+	 * @desc 장면 상대 좌표에서 타일 좌표를 계산해요!
 	 * 		타일좌표는 실수가 되요 
+	 * @param {cc.Vec2} point
 	 */
     toTileCoordFloat: function(point)
     {
@@ -132,6 +148,7 @@ var Stage = cc.Class({
 	 * @author karikera
 	 * @desc 장면 상대 좌표에서 타일 좌표를 계산해요!
 	 * 		타일좌표는 정수가 되요 
+	 * @param {cc.Vec2} point
 	 */
     toTileCoord: function(point)
     {
