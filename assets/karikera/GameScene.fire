@@ -273,12 +273,14 @@
     "mouse": {
       "__id__": 6
     },
-    "camera": null,
+    "canvas": {
+      "__id__": 2
+    },
     "cover": {
       "__id__": 9
     },
     "stages": [
-      "Stage/StageX"
+      "Stage/Stage1"
     ]
   },
   {
@@ -304,8 +306,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1024,
-      "height": 768
+      "width": 0,
+      "height": 0
     },
     "_children": [],
     "_rotationX": 0,
@@ -314,8 +316,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 512,
-      "y": 384
+      "x": 0,
+      "y": 0
     },
     "_skewX": 0,
     "_skewY": 0,
