@@ -22,7 +22,8 @@ var 지반_재난_상성표 = [
 	[1,		1,		0,		1,		1,		1,		1], // 암석
 	[1,		1.5,	1,		1.25,	1,		1,		1], // 흙
 	[1,		2,		1,		1.5,	1,		1,		1], // 진흙
-	[1,		2.5,	1,		1.7,	1,		1,		1], // 모래
+	[1,		2.5,	1,		1.7,	1.5,	1.2,	1.5], // 모래
+	[0.5,	0,		0,		0,		2,		1,		1], // 물
 ];
 
 /**
@@ -90,24 +91,26 @@ var Disaster = cc.Class({
 			{
 				// 지진 발생시!
 				var buildings = Building.getAll();
+				var that = this;
 				for(var i=0;i<buildings.length;i++)
 				{
 					var building = buildings[i];
-
 					// 거리 대미지 계산
-					var damageper = 0;
-					var dx = Math.abs(tilePos.x - building.tilePos.x);
-					var dy = Math.abs(tilePos.y - building.tilePos.y);
-					var distance = dx + dy;
-					if (distance === 0) damageper = 1;
-					else if(distance <= 3) damageper = 0.8;
-					else if(distance <= 6) damageper = 0.4;
-					else if(distance <= 10) damageper = 0.15;
-					else if(distance <= 30) damageper = 0.05;
-					else damageper = random(0, 0.01);
-					
-					// 대미지 적용!
-					this.damageTo(building, damageper);
+					building.region((x, y) => {
+						var damageper = 0;
+						var dx = Math.abs(tilePos.x - x);
+						var dy = Math.abs(tilePos.y - y);
+						var distance = dx + dy;
+						if (distance === 0) damageper = 1;
+						else if(distance <= 3) damageper = 0.8;
+						else if(distance <= 6) damageper = 0.4;
+						else if(distance <= 10) damageper = 0.15;
+						else if(distance <= 30) damageper = 0.05;
+						else damageper = random(0, 0.01);
+						
+						// 대미지 적용!
+						that.damageTo(building, damageper);
+					});
 				}
 			};
 			break;
@@ -160,43 +163,31 @@ var Disaster = cc.Class({
 	{
 		var width = this.타일_범위_X;
 		var height = this.타일_범위_Y;
-		var x1 = 0, x2 = 0, y1 = 0, y2 = 0;
+		var x = 0, y = 0;
 
 		if (width === 0)
 		{
-			x1 = 0;
-			x2 = stage.width;
+			x = 0;
+			width = stage.width;
 		}
 		else
 		{
-			x1 = Math.floor(tilepos.x - width / 2);
-			x2 = x + width;
+			x = Math.floor(tilepos.x - width / 2);
 		}
 
 		if (height === 0)
 		{
-			y1 = 0;
-			y2 = stage.height;
+			y = 0;
+			height = stage.height;
 		}
 		else
 		{
-			y1 = Math.floor(tilepos.y - height / 2);
-			y2 = y + height;
+			y = Math.floor(tilepos.y - height / 2);
 		}
 
-		var bs = {};
-		for(var y = y1; y < y2; y ++)
-		{
-			for(var x = x1; x < x2; x ++)
-			{
-				var b = Building.get(cc.p(x, y));
-				bs[b.id] = b;
-			}
-		}
-		for(var bid in bs)
-		{
-			this.damageTo(bs[bid]);
-		}
+		util.makeRegion(cc.p(x, y), width, height)(
+			(x, y) => Building.get(cc.p(x, y)).damageTo(bs[bid])
+		);
 	},
 	/**
 	 * @author karikera

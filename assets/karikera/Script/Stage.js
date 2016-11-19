@@ -11,9 +11,6 @@ const DX = 64; // karikera: 타일 가로 간격
 const DY = 32; // karikera: 타일 세로 간격
 const DZ = 12; // karikera: 타일의 두께 세로 간격
 
-/** @type{cc.Node} */
-var stageNode = null; 
-
 var Stage = cc.Class({
     extends: cc.Component,
 	editor: {
@@ -30,9 +27,8 @@ var Stage = cc.Class({
 		 */
 		loadStage: function(node, url, onload)
 		{
-			stageNode = node;
-			if (node.children.length !== 0)
-				node.children[0].destroy();
+			//if (node.children.length !== 0)
+			//	node.children[0].destroy();
 			
 			/**
 			 * @param {Error} err 
@@ -60,6 +56,7 @@ var Stage = cc.Class({
 					if (building === null) continue;
 					building.init(stage);
 				}
+				stage.container = container;
 				onload(stage);
 			}
 			cc.loader.loadRes(url, cc.Prefab, onLoad);
@@ -98,6 +95,25 @@ var Stage = cc.Class({
 		this.mapOffsetX = firstCoord.x - this.tiledWidth/2 + DX / 2;
 		this.mapOffsetY = firstCoord.y - this.tiledHeight/2 + DY / 2 + DZ;
 		
+	},
+
+	/**
+	 * @param {number} x
+	 * @param {number} y
+	 */
+	setCamera: function (x, y)
+	{
+		this.container.x = -x;
+		this.container.y = -y;
+	},
+	/**
+	 * @param {number} dx
+	 * @param {number} dy
+	 */
+	moveCamera: function (dx, dy)
+	{
+		this.container.x -= dx;
+		this.container.y -= dy;
 	},
 
 	/**

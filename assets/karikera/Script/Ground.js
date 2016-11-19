@@ -18,7 +18,7 @@ function Ground(id, name)
     this.name = name;
 }
 
-Ground.prototype.id = -1;
+Ground.prototype.id = 0;
 Ground.prototype.name = "";
 
 Ground.prototype.toString = function()
@@ -29,6 +29,9 @@ Ground.prototype.toString = function()
 Ground.unknown = new Ground(0, "unknown");
 Ground.암석 = new Ground(1, "암석");
 Ground.흙 = new Ground(2, "흙");
+Ground.진흙 = new Ground(3, "진흙");
+Ground.모래 = new Ground(4, "모래");
+Ground.물 = new Ground(5, "물");
 
 /**
  * @param {number} id

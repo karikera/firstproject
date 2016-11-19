@@ -26,7 +26,7 @@ var Mouse = cc.Class({
 	onCollisionEnter: function (other, self){
 		var bnode = other.node;
 		var building = bnode.getComponent(Building);
-		if (!building === null) return;
+		if (building === null) return;
 
 		for(var i=0;i<this.hovers.length;i++)
 		{
