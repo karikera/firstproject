@@ -211,9 +211,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+      "__id__": 0
     },
-    "fileId": "7ecc7sXjTtK66ZoFxJdzh4G",
+    "fileId": "e1501+ZDbxInbUxMyHETT9B",
     "sync": false
   },
   {
@@ -243,9 +243,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+      "__id__": 0
     },
-    "fileId": "78c7dUbiKxHB65bzbyfg3wQ",
+    "fileId": "c5563UjrbxH7aZsQpggWiek",
     "sync": false
   },
   {
@@ -347,7 +347,9 @@
     "수용_인구수": 100,
     "인구수": 100,
     "지하실": false,
-    "자재": 0
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
   },
   {
     "__type__": "cc.PolygonCollider",
@@ -402,9 +404,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+      "__id__": 0
     },
-    "fileId": "dbd554rWMtG1KcshiiiboMp",
+    "fileId": "b9a86ZLiBxLMo9JCnLa3LS0",
     "sync": false
   },
   {
@@ -506,7 +508,9 @@
     "수용_인구수": 100,
     "인구수": 100,
     "지하실": false,
-    "자재": 0
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
   },
   {
     "__type__": "cc.PolygonCollider",
@@ -561,9 +565,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+      "__id__": 0
     },
-    "fileId": "4b8a0RtTgFMnraXIW75kW1L",
+    "fileId": "49d02ZbellBpLzI9YTUHZav",
     "sync": false
   },
   {
@@ -665,7 +669,9 @@
     "수용_인구수": 100,
     "인구수": 100,
     "지하실": false,
-    "자재": 0
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
   },
   {
     "__type__": "cc.PolygonCollider",
@@ -720,9 +726,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+      "__id__": 0
     },
-    "fileId": "cadeeN2ShBH+qg8VWMwWQ9h",
+    "fileId": "e20974S0OJDJ5Q6ojYamx7U",
     "sync": false
   },
   {
@@ -824,7 +830,9 @@
     "수용_인구수": 100,
     "인구수": 100,
     "지하실": false,
-    "자재": 0
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
   },
   {
     "__type__": "cc.PolygonCollider",
@@ -879,9 +887,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+      "__id__": 0
     },
-    "fileId": "f4368awJqtDaZNxRjjNpY0G",
+    "fileId": "538b72yWaROzK8Ga+HxkYZW",
     "sync": false
   },
   {
@@ -983,7 +991,9 @@
     "수용_인구수": 100,
     "인구수": 100,
     "지하실": false,
-    "자재": 0
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
   },
   {
     "__type__": "cc.PolygonCollider",
@@ -1038,9 +1048,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+      "__id__": 0
     },
-    "fileId": "a0d39M8QTVMDY8FCJShI3ox",
+    "fileId": "a35c87/rvJAN4IjFLgVHsql",
     "sync": false
   },
   {
@@ -1142,7 +1152,9 @@
     "수용_인구수": 100,
     "인구수": 100,
     "지하실": false,
-    "자재": 0
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
   },
   {
     "__type__": "cc.PolygonCollider",
@@ -1197,9 +1209,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+      "__id__": 0
     },
-    "fileId": "07601/8K3tLPoxuck0HTOeE",
+    "fileId": "7a7e4Mpc2dGhLmI9S94Ydg1",
     "sync": false
   },
   {
@@ -1301,7 +1313,9 @@
     "수용_인구수": 100,
     "인구수": 100,
     "지하실": false,
-    "자재": 0
+    "자재": 0,
+    "크기_X": 1,
+    "크기_Y": 1
   },
   {
     "__type__": "cc.PolygonCollider",
@@ -1356,9 +1370,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+      "__id__": 0
     },
-    "fileId": "f77aaLjSnVJRJ9H18wvt3NH",
+    "fileId": "1e23bIkGMlCAI3VTBoPIQE8",
     "sync": false
   },
   {
@@ -1367,9 +1381,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "f63938e6-686c-4d06-bc23-a5f04d059934"
+      "__id__": 0
     },
-    "fileId": "5ef5fGU/D9KLq7cSwb99760",
+    "fileId": "ea1ceDbqANO6I70TtIn+7ZZ",
     "sync": false
   }
 ]

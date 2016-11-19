@@ -10,7 +10,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "빌딩",
+    "_name": "road",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -25,12 +25,12 @@
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0.5,
-      "y": 0.12
+      "y": 0.5
     },
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 65,
-      "height": 113
+      "height": 37
     },
     "_children": [],
     "_rotationX": 0,
@@ -39,8 +39,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0.4,
-      "y": 26.8
+      "x": 0,
+      "y": 0
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -53,16 +53,10 @@
     "_components": [
       {
         "__id__": 2
-      },
-      {
-        "__id__": 3
-      },
-      {
-        "__id__": 4
       }
     ],
     "_prefab": {
-      "__id__": 5
+      "__id__": 3
     },
     "groupIndex": 0
   },
@@ -75,7 +69,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "656d8d59-c1cf-4a3a-b122-bf502b155dab"
+      "__uuid__": "acde42fe-4ab0-4e00-9f82-85bf0bb4aa3d"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -93,78 +87,14 @@
     "_atlas": null
   },
   {
-    "__type__": "64050c14RhBB6F8B5ZbQPUN",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "전체_내구도": 500,
-    "내구도": 500,
-    "수용_인구수": 300,
-    "인구수": 150,
-    "지하실": false,
-    "자재": 0,
-    "크기_X": 1,
-    "크기_Y": 1
-  },
-  {
-    "__type__": "cc.PolygonCollider",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "tag": 0,
-    "_offset": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": -0.6
-    },
-    "points": [
-      {
-        "__type__": "cc.Vec2",
-        "x": -32.5,
-        "y": 2.4
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -32.5,
-        "y": 84.6
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 0,
-        "y": 100
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 32.5,
-        "y": 84.6
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 32.5,
-        "y": 2.4
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 0,
-        "y": -13
-      }
-    ]
-  },
-  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "cc9dfe33-0d7d-4d95-822f-751c45ac3318"
+      "__id__": 0
     },
-    "fileId": "5d662oh7llERrTT0+9prsdY",
+    "fileId": "1afe7XfxmlGMa4iUeirA1G/",
     "sync": false
   }
 ]
