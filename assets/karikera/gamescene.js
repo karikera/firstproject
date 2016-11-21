@@ -21,11 +21,11 @@ var GameScene = cc.Class({
 			default: null,
 			type: Mouse
 		},
-		canvas: {
+		stageNode: {
 			default: null,
 			type: cc.Node
 		},
-		cover:{
+		cover: {
 			default: null,
 			type: cc.Node
 		},
@@ -36,42 +36,95 @@ var GameScene = cc.Class({
     },
 
     // karikera: 초기화
-    /** @this{GameScene} */
     onLoad: function () {
         console.log("onload");
-
+		
 		this.stage = null;
-		this.cover.width = this.canvas.width;
-		this.cover.height = this.canvas.height;
-		this.cover.x = this.canvas.x;
-		this.cover.y = this.canvas.y;
+		this.cover.width = this.node.width;
+		this.cover.height = this.node.height;
 
+		// karikera: update 에서 키보드 상태를 확인하기 위해 있어요
 		this.keyMap = new Array(256);
 		this.keyMap[0] = false;
 		for(var i=0;i<this.keyMap.length;i++)
 			this.keyMap[i] = false;
 
-		var that = this;
+		// karikera: 이 노드는 장면이 남아있어도 남아있게 해요!
+		cc.game.addPersistRootNode(this.node);
+		this.node.zIndex = 10000; // karikera: 이 노드는 항상 최상위여야해요!
 
 		// karikera: 건물이 무너지는 프리팹을 미리 로드해요! 안그러면 무너질 때 살짝 공백이 생겨요 ( . . . ) . ;   
 		cc.loader.loadRes('Prefab/DestroyingBuilding');
         
-		// karikera: 콜라이더 사용 설정과, 콜라이더에 선을 그려요!
+		// karikera: 콜라이더 사용 설정을 해요!
         cc.director.getCollisionManager().enabled = true;
-        //cc.director.getCollisionManager().enabledDebugDraw = true;
 
-		Stage.loadStage(this.node, this.stages[0], function(stage){ 
-			that.stage = stage;
-			stage.setCamera(-that.cover.width / 2, -that.cover.height / 2);
-		 });
-        
         // karikera: 키보드/마우스 이벤트를 밑의 on* 함수로 받을 수 있게 연결해요
         util.linkInputEvent(this.cover, this);
+
+		this.loadStage(this.stages[0]);
     },
+
+	/**
+	 * @author karikera
+	 * @desc 스테이지를 로드해요!
+	 * @param {string} name 장면 이름
+	 */
+	loadStage: function(name)
+	{
+		console.log("Load Stage: "+ name);
+		
+		var children = this.stageNode.children;
+		while(children.length) children[0].destroy();
+
+		var that = this;
+		cc.director.loadScene(name, function(){
+			var scene = cc.director.getScene();
+			var tilemap = scene.getChildByName("타일맵");
+			if (tilemap === null)
+			{
+				console.error("'타일맵' 노드가 없어요! 무조건 하나는 있어야해요!");
+				return;
+			}
+			tilemap.removeFromParent();
+			that.stageNode.addChild(tilemap);
+
+			/** @type{Stage} */
+			var stage = tilemap.getComponent(Stage);
+			if (stage === null)
+			{
+				console.error("'타일맵'에는 Stage 스크립트가 있어야해요!");
+				return;
+			}
+
+			that.stage = stage;
+
+			var children = scene.children;
+			for(var i=0;i<children.length;i++)
+			{
+				var child = children[i];
+				if (child === that.node) continue;
+				i--;
+				child.removeFromParent();
+				that.stageNode.addChild(child);
+				var building = child.getComponent(Building);
+				if (building !== null) building.init(stage);
+			}
+		});
+	},
+
     // karikera: 키보드 눌렀을 때 동작
     onKeyPressed: function(keyCode, event) {
 		if (keyCode >= this.keyMap.length) return;
 		this.keyMap[keyCode] = true;
+		switch(keyCode)
+		{
+		case cc.KEY.q:
+			var mgr = cc.director.getCollisionManager();
+        	mgr.enabledDebugDraw = !mgr.enabledDebugDraw;
+			console.log('enabledDebugDraw: '+mgr.enabledDebugDraw);
+			break;
+		}
     },
     // karikera: 키보드 땟을 때 동작
     onKeyReleased: function(keyCode, event) {
@@ -126,7 +179,8 @@ var GameScene = cc.Class({
 			if (this.keyMap[cc.KEY.down] || this.keyMap[cc.KEY.s]) camY -= CAMSPEED * dt;
 			if (this.keyMap[cc.KEY.right] || this.keyMap[cc.KEY.d]) camX += CAMSPEED * dt;
 			if (this.keyMap[cc.KEY.left] || this.keyMap[cc.KEY.a]) camX -= CAMSPEED * dt;
-			this.stage.moveCamera(camX, camY);
+			this.stageNode.x -= camX;
+			this.stageNode.y -= camY;
 		}
 
         // 디버그 레이블을 계속 갱신해요!

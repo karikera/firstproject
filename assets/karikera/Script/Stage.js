@@ -18,60 +18,6 @@ var Stage = cc.Class({
 	},
 	statics: {
 		current: null,
-		/**
-		 * @author karikera
-		 * @desc 노드 안에 스테이지를 불러와요!
-		 * @param {cc.Node} node
-		 * @param {string} url
-		 * @param {function(Stage)} onload
-		 */
-		loadStage: function(node, url, onload)
-		{
-			//if (node.children.length !== 0)
-			//	node.children[0].destroy();
-			
-			/**
-			 * @param {Error} err 
-			 * @param {cc.Prefab} prefab
-			 */
-			function onLoad(err, prefab)
-			{
-				/** @type{cc.Node} */
-				var container = cc.instantiate(prefab);
-				node.addChild(container);
-				
-				var children = container.children;
-				var stage = null;
-				for(var i=0;i<children.length;i++)
-				{
-					var child = children[i];
-					stage = child.getComponent(Stage);
-					if (stage === null) continue;
-					break;
-				}
-				for(var i=0;i<children.length;i++)
-				{
-					var child = children[i];
-					var building = child.getComponent(Building);
-					if (building === null) continue;
-					building.init(stage);
-				}
-				stage.container = container;
-				onload(stage);
-			}
-			cc.loader.loadRes(url, cc.Prefab, onLoad);
-
-			// canvas.runAction(cc.sequence( 
-			// 	cc.fadeOut(), 
-			// 	cc.callFunc(function () {
-			// 		cc.director.loadScene('xxx');
-			// 	})
-			// ));
-			// this.canvas.color = new cc.Color(0, 0, 0);
-			// this.canvas.runAction(
-			// 	cc.fadeIn(3.0)
-			// ); 
-		},
 	},
 
 	onLoad: function()
@@ -95,25 +41,6 @@ var Stage = cc.Class({
 		this.mapOffsetX = firstCoord.x - this.tiledWidth/2 + DX / 2;
 		this.mapOffsetY = firstCoord.y - this.tiledHeight/2 + DY / 2 + DZ;
 		
-	},
-
-	/**
-	 * @param {number} x
-	 * @param {number} y
-	 */
-	setCamera: function (x, y)
-	{
-		this.container.x = -x;
-		this.container.y = -y;
-	},
-	/**
-	 * @param {number} dx
-	 * @param {number} dy
-	 */
-	moveCamera: function (dx, dy)
-	{
-		this.container.x -= dx;
-		this.container.y -= dy;
 	},
 
 	/**
