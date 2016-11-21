@@ -46,7 +46,9 @@ var DestroyingBuilding = cc.Class({
 				db.mask.node.height = size;
 				db.lifeTime = rect.height / SINK_PER_SEC;
 				db.overLifeTime = db.particle.life;
-
+				
+				/** @type{cc.ParticleSystem} */
+				var particle = db.particle;
 				parent.addChild(dbnode);
 			}
 			cc.loader.loadRes('Prefab/DestroyingBuilding', onLoad);
@@ -88,7 +90,6 @@ var DestroyingBuilding = cc.Class({
 
 			if (this.lifeTime <= 0)
 			{
-				/** @type{cc.ParticleSystem} */
 				this.particle.stopSystem();
 			}
 		}

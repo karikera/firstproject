@@ -105,12 +105,19 @@ var Building = cc.Class({
 	init: function(stage)
 	{
 		this.tilePos = stage.toTileCoordFloat(this.node.getPosition());
-		this.tilePos.x = Math.round(this.tilePos.x - this.크기_X / 2 + 0.5);
-		this.tilePos.y = Math.round(this.tilePos.y - this.크기_Y / 2 + 0.5);
-		this.node.zIndex = this.tilePos.x + this.tilePos.y;
-		this.node.setPosition(stage.fromTileCoord(this.tilePos));
-		this.tileX = this.tilePos.x;
-		this.tileY = this.tilePos.y;
+		this.tilePos.x = Math.round(this.tilePos.x - 0.5); 
+		this.tilePos.y = Math.round(this.tilePos.y - 0.5);
+
+		var ntilePos = cc.p(this.tilePos.x, this.tilePos.y);
+		ntilePos.x += 0.5; ntilePos.y += 0.5;
+		this.node.setPosition(stage.fromTileCoord(ntilePos));
+
+		ntilePos.x -= this.크기_X / 2;
+		ntilePos.y -= this.크기_Y / 2;
+		this.node.zIndex = ntilePos.x + ntilePos.y;
+		this.tileX = this.tilePos.x -= this.크기_X + 1;
+		this.tileY = this.tilePos.y -= this.크기_Y + 1;
+
 		this.region = util.makeRegion(this.tilePos, this.크기_X, this.크기_Y);
 		this.지반 = stage.getGroundFromRegion(this.region);
 		this.region((x,y)=>buildingByPos[x+","+y] = this);
