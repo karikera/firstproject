@@ -42,6 +42,8 @@ var GameScene = cc.Class({
 		this.stage = null;
 		this.cover.width = this.node.width;
 		this.cover.height = this.node.height;
+		this.camX = 0;
+		this.camY = 0;
 
 		// karikera: update 에서 키보드 상태를 확인하기 위해 있어요
 		this.keyMap = new Array(256);
@@ -52,6 +54,8 @@ var GameScene = cc.Class({
 		// karikera: 이 노드는 장면이 남아있어도 남아있게 해요!
 		cc.game.addPersistRootNode(this.node);
 		this.node.zIndex = 10000; // karikera: 이 노드는 항상 최상위여야해요!
+
+		cc.director.setProjection(0);
 
 		// karikera: 건물이 무너지는 프리팹을 미리 로드해요! 안그러면 무너질 때 살짝 공백이 생겨요 ( . . . ) . ;   
 		cc.loader.loadRes('Prefab/DestroyingBuilding');
@@ -73,7 +77,7 @@ var GameScene = cc.Class({
 	loadStage: function(name)
 	{
 		console.log("Load Stage: "+ name);
-		
+
 		var children = this.stageNode.children;
 		while(children.length) children[0].destroy();
 
@@ -179,8 +183,10 @@ var GameScene = cc.Class({
 			if (this.keyMap[cc.KEY.down] || this.keyMap[cc.KEY.s]) camY -= CAMSPEED * dt;
 			if (this.keyMap[cc.KEY.right] || this.keyMap[cc.KEY.d]) camX += CAMSPEED * dt;
 			if (this.keyMap[cc.KEY.left] || this.keyMap[cc.KEY.a]) camX -= CAMSPEED * dt;
-			this.stageNode.x -= camX;
-			this.stageNode.y -= camY;
+			this.camX += camX;
+			this.camY += camY;
+			this.stageNode.x = Math.round(-this.camX);
+			this.stageNode.y = Math.round(-this.camY);
 		}
 
         // 디버그 레이블을 계속 갱신해요!

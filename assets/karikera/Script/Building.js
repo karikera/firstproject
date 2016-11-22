@@ -63,8 +63,7 @@ var Building = cc.Class({
     },
     
     onLoad: function()
-    {
-        // karikera: 키보드/마우스 이벤트를 밑의 on* 함수로 받을 수 있게 연결해요
+    {        // karikera: 키보드/마우스 이벤트를 밑의 on* 함수로 받을 수 있게 연결해요
         util.linkInputEvent(this.node, this);  
         
         // karikera: 기타 필요한걸 가져오며, 초기값을 설정해요!
@@ -74,8 +73,9 @@ var Building = cc.Class({
         this.tileX = -1;
         this.tileY = -1;
 		this.지반 = null;
-		this.node.zIndex = this.tileX + this.tileY;
         this.destroyed = false;
+
+		util.fixAnchor(this.node);
 
 		this.id = id;
 		id = id + 1 | 0;
@@ -104,22 +104,33 @@ var Building = cc.Class({
 	 */
 	init: function(stage)
 	{
+		// karikera: 타일 위치를 구해요!
 		this.tilePos = stage.toTileCoordFloat(this.node.getPosition());
 		this.tilePos.x = Math.round(this.tilePos.x - 0.5); 
 		this.tilePos.y = Math.round(this.tilePos.y - 0.5);
 
+		// karikera: 타일 위치에서 노드 위치를 다시 계산해서 보정시켜요 
 		var ntilePos = cc.p(this.tilePos.x, this.tilePos.y);
 		ntilePos.x += 0.5; ntilePos.y += 0.5;
-		this.node.setPosition(stage.fromTileCoord(ntilePos));
+		var intTilePos = stage.fromTileCoord(ntilePos);
+		intTilePos.x = Math.round(intTilePos.x);
+		intTilePos.y = Math.round(intTilePos.y);
+		this.node.setPosition(intTilePos);
 
+		// karikera: 타일 위치를 위쪽으로 재조정해요! x ~ x + width, y ~ y + height 로 계산이 가능하게요!
 		ntilePos.x -= this.크기_X / 2;
 		ntilePos.y -= this.크기_Y / 2;
 		this.node.zIndex = ntilePos.x + ntilePos.y;
 		this.tileX = this.tilePos.x -= this.크기_X + 1;
 		this.tileY = this.tilePos.y -= this.크기_Y + 1;
 
+		// karikera: 타일 좌표에서 영역을 만들어요
 		this.region = util.makeRegion(this.tilePos, this.크기_X, this.크기_Y);
+
+		// karikera: 영역에서 지반을 가져와요
 		this.지반 = stage.getGroundFromRegion(this.region);
+
+		// karikera: 영역에서 건물을 찾을 수 있도록 넣어놔요
 		this.region((x,y)=>buildingByPos[x+","+y] = this);
 	},
     

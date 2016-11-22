@@ -25,6 +25,9 @@ var Stage = cc.Class({
 		/** @type{cc.TiledMap} */
 		var tiledmap = this.node.getComponent(cc.TiledMap);
 
+		this.node.x = Math.round(this.node.x);
+		this.node.y = Math.round(this.node.y);
+
 		/** @type{cc.TiledLayer} */
 		var layer = tiledmap.allLayers()[0];
 		this.layer = layer;

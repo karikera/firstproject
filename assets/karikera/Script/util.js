@@ -16,6 +16,21 @@ var util = {
 
 	/**
 	 * @author karikera
+	 * @desc 앵커를 픽셀에 딱 떨어지게 재조정해요!
+	 * @param {cc.Node} node 
+	 */
+	fixAnchor: function(node)
+	{
+		/** @type{cc.Sprite} */
+		var sprite = node.getComponent(cc.Sprite);
+		//sprite.type = cc.Sprite.Type.SLICED;
+		var rect = sprite.spriteFrame.getRect();
+		node.anchorX = (Math.round(node.anchorX * rect.width)) / rect.width;
+		node.anchorY = (Math.round(node.anchorY * rect.height)) / rect.height;
+	},
+
+	/**
+	 * @author karikera
 	 * @desc 해당 범위를 루프하는 함수를 만들어요!
 	 * @param {cc.Vec2} pos 위치
 	 * @param {number} width 넓이

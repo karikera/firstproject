@@ -12,8 +12,8 @@
     "portrait": false,
     "upsideDown": false
   },
-  "packageName": "org.cocos2d.helloworld",
+  "packageName": "team.novanokto.disaster",
   "startScene": "4ab4c0e1-a4e4-46a7-abf2-22fad775977c",
-  "title": "hello_world",
+  "title": "Disaster",
   "webOrientation": "auto"
 }
